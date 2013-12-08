@@ -1,0 +1,63 @@
+\name{readGPRHeaderS}
+\alias{readGPRHeaderS}
+\title{Read GPR headers.}
+\usage{
+  readGPRHeaderS(files = dir(pattern = ".gpr", ignore.case = TRUE),
+    samplenames = sub(".gpr", "", files, ignore.case = TRUE),
+    verbose = TRUE, includeFileNames = TRUE)
+}
+\arguments{
+  \item{files}{names of the files which header is to be
+  read.}
+
+  \item{samplenames}{names to be given to the arrays.}
+
+  \item{verbose}{verbose}
+
+  \item{includeFileNames}{should the filename be included?}
+}
+\value{
+  A list of two components 'params' and 'colnames'.
+}
+\description{
+  Reads header from GenePix GPR files.
+}
+\details{
+  Returns a list of two components 'params' and 'colnames'.
+  params is a dataframe having the header parameters; reads
+  from files ares arranged in rows. colnames is a character
+  vector containing the names of the data columns.
+}
+\examples{
+setwd (file.path (system.file ("exampledata", package = "agilent")))
+dir ()
+
+hs <- readGPRHeaderS ()
+class (hs)
+length (hs)
+hs$params[,1:5]
+hs$params[,c("Wavelengths")]
+hs$columns[1:5]
+
+hs <- readGPRHeaderS (files = c("GPR2.gpr", "GPR1.gpr"),
+                      samplenames = c("second", "first"),
+                      verbose = FALSE, includeFileNames = FALSE)
+hs$param[,1:5]
+
+hs <- readGPRHeaderS ("GPR2.gpr")
+class (hs)
+hs$columns[1:5]
+}
+\author{
+  David Montaner \email{dmontaner@cipf.es}
+}
+\references{
+  \url{http://www.moleculardevices.com/pages/software/gn_genepix_file_formats.html}
+}
+\seealso{
+  \code{\link{readAgilent}} \code{\link{readGPR}}
+}
+\keyword{GPR}
+\keyword{header.}
+\keyword{Read}
+

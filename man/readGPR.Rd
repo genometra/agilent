@@ -1,0 +1,97 @@
+\name{readGPR}
+\alias{readGPR}
+\title{Average duplicated rows}
+\usage{
+  readGPR(files = character(0), samplenames = NULL,
+    sampleinfo = NULL, foreground.column = "F532 Mean",
+    background.column = "B532 Median",
+    other.columns = c("Flags"),
+    feature.columns = c("Block", "Column", "Row", "Name", "ID", "ControlType"),
+    derivefeatures = TRUE, verbose = TRUE, ...)
+}
+\arguments{
+  \item{files}{names of the files to be read.}
+
+  \item{samplenames}{names to be given to the arrays.}
+
+  \item{sampleinfo}{data frame with columns 'filename',
+  'samplename' and any other sample information.}
+
+  \item{foreground.column}{column name of the foreground
+  intensities.}
+
+  \item{background.column}{column name of the background
+  intensities.}
+
+  \item{other.columns}{some other columns to be read.}
+
+  \item{feature.columns}{some other columns to be read as
+  featureData.}
+
+  \item{derivefeatures}{should additional features be
+  computed.}
+
+  \item{verbose}{verbose}
+
+  \item{\dots}{further arguments NOT IN USE}
+}
+\value{
+  An ExpressionSet containing foreground (F) and background
+  (B) matrices within the assayData.
+}
+\description{
+  Reads GPR raw data txt exported files.
+}
+\details{
+  exprs in assayData is set to NA.
+
+  sampleinfo is used rather than files or samplenames.
+
+  sampleinfo must have columns filename and samplename.
+
+  If background.column = NULL no B matrix is set in
+  assayData If derivefeatures is TRUE "BiologicalFeature"
+  is added to he fData indicating when ControlType is
+  "FALSE".
+
+  If all feature.columns are the same a single column is
+  passed to the featureData. If not all of them are equal,
+  the information stays in the assayData
+
+  default feature.columns are "Block", "Column", "Row",
+  "Name", "ID" and "ControlType" For consistency with the
+  original Agilent text format, if "Column" is among
+  feature.columns a final column named just "Col" is in the
+  pData object.
+}
+\examples{
+setwd (file.path (system.file ("exampledata", package = "agilent")))
+dir ()
+
+rg <- readGPR ()
+pData (rg)
+fData (rg)[1:5,]
+assayDataElementNames (rg)
+table (assayData (rg)[["Flags"]][,1] == assayData (rg)[["Flags"]][,2])
+
+sinfo <- cbind (filename = c("GPR2.gpr", "GPR1.gpr"),
+                  samplename = c("second", "first"), more = 1:2)
+rg <- readGPR (sampleinfo = sinfo)
+pData (rg)
+
+rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+pData (rg)
+fData (rg)
+assayDataElementNames (rg)
+exprs (rg) [1:3,]
+foreg (rg) [1:3,]
+}
+\author{
+  David Montaner \email{dmontaner@cipf.es}
+}
+\seealso{
+  \code{\link{readAgilent}} \code{\link{readGPRHeaderS}}
+}
+\keyword{GPR.}
+\keyword{Read}
+

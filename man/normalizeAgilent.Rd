@@ -1,0 +1,136 @@
+\name{normalizeAgilent}
+\alias{normalizeAgilent}
+\title{Normalize Agilent.}
+\usage{
+  normalizeAgilent(object, method = "quantiles",
+    logit = FALSE, nonbiologicalout = TRUE,
+    nonbiological2na = FALSE, flagout = TRUE,
+    flag2na = FALSE, keep = FALSE, verbose = TRUE, ...)
+}
+\arguments{
+  \item{object}{an Agilent One Color ExpressionSet.}
+
+  \item{method}{normalization method}
+
+  \item{logit}{should data be log2 transformed after
+  normalization}
+
+  \item{nonbiologicalout}{should Non Biological Features be
+  discarded when estimating correction parameters}
+
+  \item{nonbiological2na}{should Non Biological Features be
+  set to NA}
+
+  \item{flagout}{should FLAGGED spots be discarded when
+  estimating correction parameters}
+
+  \item{flag2na}{should FLAGGED spots be set to NA}
+
+  \item{keep}{should assayData elements other than "exprs"
+  be kept in the output}
+
+  \item{verbose}{verbose}
+
+  \item{\dots}{further arguments NOT IN USE}
+}
+\value{
+  An ExpressionSet containing normalized intensities in the
+  "exprs" slot.
+}
+\description{
+  Normalization methods for Agilent one color microarrays.
+}
+\details{
+  Available methods are: "quantiles", "scale" and "none".
+
+  See \code{\link{backgroundCorrect}} in the limma package.
+
+  A column "BiologicalFeature" is expected in the fData if
+  nonbiologicalout is TRUE flagout uses the assayData
+  matrix "flagout" if exists. This is a logical or a 0,1
+  matrix. See \code{flags} "quantiles" method performs as
+  the function normalize.quantiles in the
+  affy/preprocessCore package "scale" method performs as
+  the function normalizeMedianAbsValues in the limma
+  package. "scale.noabs" performs as the function
+  normalizeMedianValues in the limma package (no absolute
+  value is taken).
+}
+\examples{
+setwd (file.path (system.file ("exampledata", package = "agilent")))
+dir ()
+
+## ra <- readAgilent ()
+## ba <- backgroundCorrectAgilent (ra)
+
+rg <- readGPR ()
+fData (rg)[1:3,]
+fData (rg)[,"BiologicalFeature"] <- fData (rg)[,"ControlType"] == "ignore"
+ba <- backgroundCorrectAgilent (rg)
+
+assayDataElementNames (ba)
+summary (exprs (ba))
+
+norm <- normalizeAgilent (ba)
+assayDataElementNames (norm)
+
+norm1 <- normalizeAgilent (object = ba, method = "quantiles", logit = FALSE,
+                           nonbiologicalout = FALSE, nonbiological2na = FALSE,
+                           flagout = FALSE, flag2na = FALSE,
+                           keep = TRUE, verbose = TRUE)
+
+table (exprs (norm1) == preprocessCore::normalize.quantiles (exprs (ba)), exclude = NULL)
+
+norm2 <- normalizeAgilent (object = ba, method = "scale", logit = FALSE,
+                           nonbiologicalout = FALSE, nonbiological2na = FALSE,
+                           flagout = FALSE, flag2na = FALSE,
+                           keep = TRUE, verbose = TRUE)
+
+table (exprs (norm2) == limma::normalizeMedianAbsValues (exprs (ba)), exclude = NULL)
+
+norm3 <- normalizeAgilent (object = ba, method = "quantiles")
+summary (exprs (norm3))
+summary (exprs (norm1))
+
+norm4 <- normalizeAgilent (object = ba, method = "scale")
+summary (exprs (norm4))
+summary (exprs (norm2))
+
+norm5 <- normalizeAgilent (object = ba, method = "quantiles", logit = FALSE,
+                           nonbiologicalout = TRUE, nonbiological2na = TRUE,
+                           flagout = FALSE, flag2na = FALSE,
+                           keep = TRUE, verbose = TRUE)
+
+table (fData(ba)[,"BiologicalFeature"] == fData(norm5)[,"BiologicalFeature"], exclude = NULL)
+biological <- fData(ba)[,"BiologicalFeature"]
+table (biological, exclude = NULL)
+
+summary (exprs (norm5[!biological,]))
+summary (exprs (norm5[biological,]))
+summary (preprocessCore::normalize.quantiles (exprs (ba[biological,])))
+summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
+
+norm6 <- normalizeAgilent (object = ba, method = "scale", logit = FALSE,
+                           nonbiologicalout = TRUE, nonbiological2na = TRUE,
+                           flagout = FALSE, flag2na = FALSE,
+                           keep = TRUE, verbose = TRUE)
+
+table (fData(ba)[,"BiologicalFeature"] == fData(norm6)[,"BiologicalFeature"], exclude = NULL)
+biological <- fData(ba)[,"BiologicalFeature"]
+table (biological, exclude = NULL)
+
+summary (exprs (norm6[!biological,]))
+summary (exprs (norm6[biological,]))
+summary (limma::normalizeMedianAbsValues (exprs (ba[biological,])))
+table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
+}
+\author{
+  David Montaner \email{dmontaner@cipf.es}
+}
+\seealso{
+  \code{\link{readAgilent}} \code{\link{readGPR}}
+  \code{\link{backgroundCorrectAgilent}}
+}
+\keyword{agilent}
+\keyword{normalize}
+

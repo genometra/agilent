@@ -1,0 +1,30 @@
+\name{foreg}
+\alias{foreg}
+\alias{foreground}
+\title{Extract Foreground form an ExpressionSet.}
+\usage{
+  foreg(object)
+}
+\arguments{
+  \item{object}{an Agilent One Color ExpressionSet.}
+}
+\value{
+  F matrix from the Agilent ExpressionSet
+}
+\description{
+  Retrieve foreground data from Agilent One Color
+  ExpressionSet.
+}
+\details{
+  This function access the F matrix in the assayData of an
+  Agilent One Color ExpressionSet.
+}
+\author{
+  David Montaner \email{dmontaner@cipf.es}
+}
+\seealso{
+  \code{\link{backg}} \code{\link{flags}}
+  \code{\link{readAgilentHeader}} \code{\link{readGPR}}
+}
+\keyword{foreground}
+
