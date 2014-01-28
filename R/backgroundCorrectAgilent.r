@@ -19,6 +19,10 @@
 ##' This may be suitable for miRNA array normalization as described in Lopez-Romero et al. (2010)
 ##' \url{http://www.biomedcentral.com/1756-0500/3/18}
 ##'
+##' The method "agilent" returns the column "gProcessedSignal" read from the raw data file.
+##' No extra processing is done with this column.
+##' See \code{\link{readAgilent}} for details on how to read this column.
+##' 
 ##' See \code{\link{backgroundCorrect}} in the limma package.
 ##' 
 ##' nonbiologicalout and flagout have an effect only when using methods "normexp" or "rma.

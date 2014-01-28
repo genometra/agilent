@@ -60,6 +60,9 @@
   "SystematicName", "FeatureNum", "Row", "Col",
   "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType",
   "Description"
+
+  Extra columns read by default are: "gProcessedSignal" and
+  "IsManualFlag". See the \code{other.columns} parameter.
 }
 \examples{
 setwd (file.path (system.file ("exampledata", package = "agilent")))

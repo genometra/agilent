@@ -29,6 +29,10 @@
 ##' Default feature.columns are "ProbeName", "GeneName", "SystematicName", "FeatureNum",
 ##' "Row", "Col", "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType", "Description"
 ##'
+##' Extra columns read by default are: "gProcessedSignal" and "IsManualFlag".
+##' See the \code{other.columns} parameter.
+##' 
+##'
 ##' @param files names of the files to be read.
 ##' @param samplenames names to be given to the arrays.
 ##' @param sampleinfo data frame with columns 'filename', 'samplename' and any other sample information.
