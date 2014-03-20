@@ -56,7 +56,7 @@
   column is passed to the featureData. If not all of them
   are equal, the information stays in the assayData
 
-  Default feature.columns are "ProbeName", "GeneName",
+  Default feature.columns are: "ProbeName", "GeneName",
   "SystematicName", "FeatureNum", "Row", "Col",
   "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType",
   "Description"
