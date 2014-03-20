@@ -26,7 +26,7 @@
 ##' If all feature.columns are the same a single column is passed to the featureData.
 ##' If not all of them are equal, the information stays in the assayData
 ##' 
-##' Default feature.columns are "ProbeName", "GeneName", "SystematicName", "FeatureNum",
+##' Default feature.columns are: "ProbeName", "GeneName", "SystematicName", "FeatureNum",
 ##' "Row", "Col", "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType", "Description"
 ##'
 ##' Extra columns read by default are: "gProcessedSignal" and "IsManualFlag".
