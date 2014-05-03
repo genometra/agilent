@@ -4,7 +4,7 @@
 \title{Average duplicated rows}
 \usage{
 averageDuplicatedRows(mat, ids, original.rows = FALSE, summarystat = "mean",
-  na.rm = TRUE, sep = " /// ", verbose = TRUE)
+  na.rm = TRUE, excludeMissingIDs = TRUE, sep = " /// ", verbose = TRUE)
 }
 \arguments{
   \item{mat}{a matrix. Generally a numerical one but see
@@ -22,6 +22,9 @@ averageDuplicatedRows(mat, ids, original.rows = FALSE, summarystat = "mean",
 
   \item{na.rm}{should NA values be removed before
   computation?}
+
+  \item{excludeMissingIDs}{should rows corresponding to
+  missing or empty IDs be excluded?}
 
   \item{sep}{a character string to separate the terms when
   summarystat is "paste" or "pasteUnique".}

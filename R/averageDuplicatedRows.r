@@ -38,6 +38,7 @@
 ##' @param original.rows logical indicating whether the mapping between \code{ids} and original row position is to be kept.
 ##' @param summarystat the summary statistic: "mean" or "median".
 ##' @param na.rm should NA values be removed before computation?
+##' @param excludeMissingIDs should rows corresponding to missing or empty IDs be excluded?
 ##' @param sep a character string to separate the terms when summarystat is "paste" or "pasteUnique".
 ##' @param verbose verbose
 ##' 
@@ -66,8 +67,8 @@
 ##' @export
 
 averageDuplicatedRows <- function (mat, ids, original.rows = FALSE,
-                                   summarystat = "mean", na.rm = TRUE, sep = " /// ", verbose = TRUE) {
- 
+                                   summarystat = "mean", na.rm = TRUE, excludeMissingIDs = TRUE, sep = " /// ", verbose = TRUE) {
+
   ##mat: matrix which rows are to be merged according to
   ##ids : vector indicating which rows are to be averaged
   ##summarystat: the summary statistic: "mean", "median" ...
@@ -82,7 +83,11 @@ averageDuplicatedRows <- function (mat, ids, original.rows = FALSE,
   conteo.missing <- sum (es.missing)
   if (conteo.missing > 0) {
     if (verbose) {
-      warning (paste (conteo.missing, "missing ids where found in ids; they will all be tagged as \"missingID\""))
+      if (excludeMissingIDs) {
+        warning (paste (conteo.missing, "missing ids where found in ids; the corresponding rows will be omitted"))
+      } else {
+        warning (paste (conteo.missing, "missing ids where found in ids; they will all be tagged as \"missingID\""))
+      }
     }
     ids[es.missing] <- "missingID"
   }
@@ -159,6 +164,11 @@ averageDuplicatedRows <- function (mat, ids, original.rows = FALSE,
     res.d <- NULL
   }
   res <- rbind (res.u, res.d)
+
+  if (excludeMissingIDs) {
+    touse <- !rownames (res) %in% "missingID"
+    res <- res[touse,]
+  }
   
   ##recovering original positions
   if (original.rows) {
@@ -175,7 +185,15 @@ averageDuplicatedRows <- function (mat, ids, original.rows = FALSE,
     } else {
       originalrows.d <- NULL
     }
-    res <- list (summarized = res, originalrows = c(originalrows.u, originalrows.d))
+
+    originalrows <- c(originalrows.u, originalrows.d)
+    
+    if (excludeMissingIDs) {
+      touse <- !names (originalrows) %in% "missingID"
+      originalrows <- originalrows[touse]
+    }
+    
+    res <- list (summarized = res, originalrows = originalrows)
   }
  
   ##output
