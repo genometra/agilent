@@ -60,8 +60,20 @@ X <- data.frame(go=c("a","b","a","b"), exp1=c(3,4,5,7),
                 exp2=c(8,9,15,20), stringsAsFactors = FALSE)
 X
 M <- as.matrix (X[,c("exp1", "exp2")])
+by (M, X[,"go"], colMeans)
 averageDuplicatedRows (mat = M, id = X[,"go"])
 averageDuplicatedRows (mat = M, id = X[,"go"], original.rows = TRUE)
+
+T <- rbind (c("A", "aa", "aa", "aa"),
+            c("B", "b1", "b2", "b3"),
+            c("C", "cc", "cc", "cc"),
+            c("B", "b1", "B2", "B3"),
+            c("C", "cc", "cc", "cc"),
+            c("C", "C1", NA, ""),
+            c("D", "dd", "dd", "dd"))
+T
+averageDuplicatedRows (mat = T[,-1], id = T[,1], summarystat = "paste", sep = " * ")
+averageDuplicatedRows (mat = T[,-1], id = T[,1], summarystat = "pasteUnique", sep = " * ")
 }
 \author{
 David Montaner \email{dmontaner@cipf.es}
