@@ -2,10 +2,9 @@
 \alias{normalizeAgilent}
 \title{Normalize Agilent.}
 \usage{
-  normalizeAgilent(object, method = "quantiles",
-    logit = FALSE, nonbiologicalout = TRUE,
-    nonbiological2na = FALSE, flagout = TRUE,
-    flag2na = FALSE, keep = FALSE, verbose = TRUE, ...)
+normalizeAgilent(object, method = "quantiles", logit = FALSE,
+  nonbiologicalout = TRUE, nonbiological2na = FALSE, flagout = TRUE,
+  flag2na = FALSE, keep = FALSE, verbose = TRUE, ...)
 }
 \arguments{
   \item{object}{an Agilent One Color ExpressionSet.}
@@ -34,27 +33,27 @@
   \item{\dots}{further arguments NOT IN USE}
 }
 \value{
-  An ExpressionSet containing normalized intensities in the
-  "exprs" slot.
+An ExpressionSet containing normalized intensities in the
+"exprs" slot.
 }
 \description{
-  Normalization methods for Agilent one color microarrays.
+Normalization methods for Agilent one color microarrays.
 }
 \details{
-  Available methods are: "quantiles", "scale" and "none".
+Available methods are: "quantiles", "scale" and "none".
 
-  See \code{\link{backgroundCorrect}} in the limma package.
+See \code{\link{backgroundCorrect}} in the limma package.
 
-  A column "BiologicalFeature" is expected in the fData if
-  nonbiologicalout is TRUE flagout uses the assayData
-  matrix "flagout" if exists. This is a logical or a 0,1
-  matrix. See \code{flags} "quantiles" method performs as
-  the function normalize.quantiles in the
-  affy/preprocessCore package "scale" method performs as
-  the function normalizeMedianAbsValues in the limma
-  package. "scale.noabs" performs as the function
-  normalizeMedianValues in the limma package (no absolute
-  value is taken).
+A column "BiologicalFeature" is expected in the fData if
+nonbiologicalout is TRUE flagout uses the assayData matrix
+"flagout" if exists. This is a logical or a 0,1 matrix. See
+\code{flags} "quantiles" method performs as the function
+normalize.quantiles in the affy/preprocessCore package
+"scale" method performs as the function
+normalizeMedianAbsValues in the limma package.
+"scale.noabs" performs as the function
+normalizeMedianValues in the limma package (no absolute
+value is taken).
 }
 \examples{
 setwd (file.path (system.file ("exampledata", package = "agilent")))
@@ -125,11 +124,11 @@ summary (limma::normalizeMedianAbsValues (exprs (ba[biological,])))
 table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
-  \code{\link{readAgilent}} \code{\link{readGPR}}
-  \code{\link{backgroundCorrectAgilent}}
+\code{\link{readAgilent}} \code{\link{readGPR}}
+\code{\link{backgroundCorrectAgilent}}
 }
 \keyword{agilent}
 \keyword{normalize}

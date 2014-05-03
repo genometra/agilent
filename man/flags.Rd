@@ -2,7 +2,7 @@
 \alias{flags}
 \title{Extract flagout form an ExpressionSet.}
 \usage{
-  flags(object, notfound2zero = TRUE, verbose = FALSE)
+flags(object, notfound2zero = TRUE, verbose = FALSE)
 }
 \arguments{
   \item{object}{an Agilent One Color ExpressionSet.}
@@ -13,24 +13,24 @@
   \item{verbose}{verbose.}
 }
 \value{
-  B matrix from the Agilent ExpressionSet
+B matrix from the Agilent ExpressionSet
 }
 \description{
-  Retrieve flagout information data from Agilent One Color
-  ExpressionSet.
+Retrieve flagout information data from Agilent One Color
+ExpressionSet.
 }
 \details{
-  This function tries to access the flagout matrix in the
-  assayData of an Agilent One Color ExpressionSet. If
-  notfound2zero is FALSE, when B matrix is not found in the
-  assayData, a NULL value is returned.
+This function tries to access the flagout matrix in the
+assayData of an Agilent One Color ExpressionSet. If
+notfound2zero is FALSE, when B matrix is not found in the
+assayData, a NULL value is returned.
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
-  \code{\link{foreg}} \code{\link{backg}}
-  \code{\link{readAgilentHeader}} \code{\link{readGPR}}
+\code{\link{foreg}} \code{\link{backg}}
+\code{\link{readAgilentHeader}} \code{\link{readGPR}}
 }
 \keyword{flags}
 

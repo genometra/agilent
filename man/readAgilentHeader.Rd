@@ -2,22 +2,22 @@
 \alias{readAgilentHeader}
 \title{Read Agilent header form a single file.}
 \usage{
-  readAgilentHeader(file)
+readAgilentHeader(file)
 }
 \arguments{
   \item{file}{name of the file which header is to be read.}
 }
 \value{
-  A list of 3 components containing the FEPARAMS, STATS,
-  and FEATURE TYPE FROM the header of the Agilent file.
-  Each element of the list is a list itself.
+A list of 3 components containing the FEPARAMS, STATS, and
+FEATURE TYPE FROM the header of the Agilent file. Each
+element of the list is a list itself.
 }
 \description{
-  Reads Agilent header from a unique txt exported file.
+Reads Agilent header from a unique txt exported file.
 }
 \details{
-  readAgilentHeaderS should be generally used. Reads
-  Agilent header from one or several txt exported files.
+readAgilentHeaderS should be generally used. Reads Agilent
+header from one or several txt exported files.
 }
 \examples{
 myfile <- file.path (system.file ("exampledata", package = "agilent"), "agilent1.txt")
@@ -25,11 +25,11 @@ myfile
 readAgilentHeader (file = myfile)
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
-  \code{\link{readAgilentHeaderS}}
-  \code{\link{readAgilent}} \code{\link{readGPR}}
+\code{\link{readAgilentHeaderS}} \code{\link{readAgilent}}
+\code{\link{readGPR}}
 }
 \keyword{agilent}
 \keyword{header}

@@ -2,9 +2,8 @@
 \alias{readAgilentHeaderS}
 \title{Read Agilent headers.}
 \usage{
-  readAgilentHeaderS(files = dir(pattern = ".txt"),
-    samplenames = sub(".txt", "", files), verbose = TRUE,
-    includeFileNames = FALSE)
+readAgilentHeaderS(files = dir(pattern = ".txt"), samplenames = sub(".txt",
+  "", files), verbose = TRUE, includeFileNames = FALSE)
 }
 \arguments{
   \item{files}{names of the files which header is to be
@@ -18,21 +17,20 @@
   into datasets?}
 }
 \value{
-  A list of 3 components containing the FEPARAMS, STATS,
-  and FEATURE TYPE FROM the header of the Agilent files.
+A list of 3 components containing the FEPARAMS, STATS, and
+FEATURE TYPE FROM the header of the Agilent files.
 }
 \description{
-  Reads Agilent header from one or several txt exported
-  files.
+Reads Agilent header from one or several txt exported
+files.
 }
 \details{
-  FEPARAMS and STATS from header of all arrays are stored
-  in a data.frames. FEATURE TYPE is stored in a character
-  vector (named fieldType) when it is the same for all
-  samples. If it is not the same across arrays (or if
-  includeFileNames = TRUE) a data.frame is used an a
-  warning message issued. Agilent \strong{field types} are
-  coded in \R standards.
+FEPARAMS and STATS from header of all arrays are stored in
+a data.frames. FEATURE TYPE is stored in a character vector
+(named fieldType) when it is the same for all samples. If
+it is not the same across arrays (or if includeFileNames =
+TRUE) a data.frame is used an a warning message issued.
+Agilent \strong{field types} are coded in \R standards.
 }
 \examples{
 setwd (file.path (system.file ("exampledata", package = "agilent")))
@@ -52,11 +50,11 @@ ra$feparams[,1:3]
 class (ra[[3]])
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
-  \code{\link{readAgilentHeader}} \code{\link{readAgilent}}
-  \code{\link{readGPR}}
+\code{\link{readAgilentHeader}} \code{\link{readAgilent}}
+\code{\link{readGPR}}
 }
 \keyword{agilent}
 \keyword{header}

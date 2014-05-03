@@ -2,12 +2,11 @@
 \alias{readAgilent}
 \title{Read Agilent.}
 \usage{
-  readAgilent(files = character(0), samplenames = NULL,
-    sampleinfo = NULL, foreground.column = "gMeanSignal",
-    background.column = "gBGMedianSignal",
-    other.columns = c("gProcessedSignal", "IsManualFlag"),
-    feature.columns = character(0), derivefeatures = TRUE,
-    verbose = TRUE, ...)
+readAgilent(files = character(0), samplenames = NULL, sampleinfo = NULL,
+  foreground.column = "gMeanSignal", background.column = "gBGMedianSignal",
+  other.columns = c("gProcessedSignal", "IsManualFlag"),
+  feature.columns = character(0), derivefeatures = TRUE, verbose = TRUE,
+  ...)
 }
 \arguments{
   \item{files}{names of the files to be read.}
@@ -37,32 +36,32 @@
   deriveAgilentFeatures.}
 }
 \value{
-  An ExpressionSet containing foreground (F) and background
-  (B) matrices within the assayData
+An ExpressionSet containing foreground (F) and background
+(B) matrices within the assayData
 }
 \description{
-  Reads Agilent raw data txt exported files.
+Reads Agilent raw data txt exported files.
 }
 \details{
-  exprs in assayData is set to NA
+exprs in assayData is set to NA
 
-  sampleinfo is used rather than files or samplenames
+sampleinfo is used rather than files or samplenames
 
-  sampleinfo must have columns named 'filename' and
-  'samplename'
+sampleinfo must have columns named 'filename' and
+'samplename'
 
-  If background.columncolumn = NULL no B matrix is set in
-  assayData. If all feature.columns are the same a single
-  column is passed to the featureData. If not all of them
-  are equal, the information stays in the assayData
+If background.columncolumn = NULL no B matrix is set in
+assayData. If all feature.columns are the same a single
+column is passed to the featureData. If not all of them are
+equal, the information stays in the assayData
 
-  Default feature.columns are: "ProbeName", "GeneName",
-  "SystematicName", "FeatureNum", "Row", "Col",
-  "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType",
-  "Description"
+Default feature.columns are: "ProbeName", "GeneName",
+"SystematicName", "FeatureNum", "Row", "Col",
+"SubTypeMask", "SubTypeName", "ProbeUID", "ControlType",
+"Description"
 
-  Extra columns read by default are: "gProcessedSignal" and
-  "IsManualFlag". See the \code{other.columns} parameter.
+Extra columns read by default are: "gProcessedSignal" and
+"IsManualFlag". See the \code{other.columns} parameter.
 }
 \examples{
 setwd (file.path (system.file ("exampledata", package = "agilent")))
@@ -84,10 +83,10 @@ fData (ra)[1:5,]
 assayDataElementNames (ra)
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
-  \code{\link{readAgilentHeader}} \code{\link{readGPR}}
+\code{\link{readAgilentHeader}} \code{\link{readGPR}}
 }
 \keyword{agilent}
 \keyword{read}

@@ -2,9 +2,9 @@
 \alias{readGPRHeaderS}
 \title{Read GPR headers.}
 \usage{
-  readGPRHeaderS(files = dir(pattern = ".gpr", ignore.case = TRUE),
-    samplenames = sub(".gpr", "", files, ignore.case = TRUE),
-    verbose = TRUE, includeFileNames = TRUE)
+readGPRHeaderS(files = dir(pattern = ".gpr", ignore.case = TRUE),
+  samplenames = sub(".gpr", "", files, ignore.case = TRUE), verbose = TRUE,
+  includeFileNames = TRUE)
 }
 \arguments{
   \item{files}{names of the files which header is to be
@@ -17,16 +17,16 @@
   \item{includeFileNames}{should the filename be included?}
 }
 \value{
-  A list of two components 'params' and 'colnames'.
+A list of two components 'params' and 'colnames'.
 }
 \description{
-  Reads header from GenePix GPR files.
+Reads header from GenePix GPR files.
 }
 \details{
-  Returns a list of two components 'params' and 'colnames'.
-  params is a dataframe having the header parameters; reads
-  from files ares arranged in rows. colnames is a character
-  vector containing the names of the data columns.
+Returns a list of two components 'params' and 'colnames'.
+params is a dataframe having the header parameters; reads
+from files ares arranged in rows. colnames is a character
+vector containing the names of the data columns.
 }
 \examples{
 setwd (file.path (system.file ("exampledata", package = "agilent")))
@@ -49,15 +49,15 @@ class (hs)
 hs$columns[1:5]
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \references{
-  \url{http://www.moleculardevices.com/pages/software/gn_genepix_file_formats.html}
+\url{http://www.moleculardevices.com/pages/software/gn_genepix_file_formats.html}
 }
 \seealso{
-  \code{\link{readAgilent}} \code{\link{readGPR}}
+\code{\link{readAgilent}} \code{\link{readGPR}}
 }
 \keyword{GPR}
-\keyword{header.}
 \keyword{Read}
+\keyword{header.}
 

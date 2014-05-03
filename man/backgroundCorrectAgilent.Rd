@@ -2,10 +2,9 @@
 \alias{backgroundCorrectAgilent}
 \title{Background Correct Agilent.}
 \usage{
-  backgroundCorrectAgilent(object, method = "rma",
-    logit = TRUE, nonbiologicalout = TRUE,
-    nonbiological2na = FALSE, flagout = TRUE,
-    flag2na = FALSE, keep = TRUE, verbose = TRUE, ...)
+backgroundCorrectAgilent(object, method = "rma", logit = TRUE,
+  nonbiologicalout = TRUE, nonbiological2na = FALSE, flagout = TRUE,
+  flag2na = FALSE, keep = TRUE, verbose = TRUE, ...)
 }
 \arguments{
   \item{object}{an Agilent One Color ExpressionSet.}
@@ -34,43 +33,42 @@
   \item{\dots}{further arguments NOT IN USE}
 }
 \value{
-  An ExpressionSet containing background corrected features
-  in the "exprs" slot.
+An ExpressionSet containing background corrected features
+in the "exprs" slot.
 }
 \description{
-  Background correction methods for Agilent one color
-  microarrays.
+Background correction methods for Agilent one color
+microarrays.
 }
 \details{
-  Available methods are: "agilent", "none", "subtract",
-  "half", "normexp", "rma", "normexpnobg", "rmanobg"
-  "normexp" and "rma" are applied after background
-  subtraction as in limma implementation. "normexpnobg" and
-  "rmanobg" are applied without background subtraction.
-  This may be suitable for miRNA array normalization as
-  described in Lopez-Romero et al. (2010)
-  \url{http://www.biomedcentral.com/1756-0500/3/18}
+Available methods are: "agilent", "none", "subtract",
+"half", "normexp", "rma", "normexpnobg", "rmanobg"
+"normexp" and "rma" are applied after background
+subtraction as in limma implementation. "normexpnobg" and
+"rmanobg" are applied without background subtraction. This
+may be suitable for miRNA array normalization as described
+in Lopez-Romero et al. (2010)
+\url{http://www.biomedcentral.com/1756-0500/3/18}
 
-  The method "agilent" returns the column
-  "gProcessedSignal" read from the raw data file. No extra
-  processing is done with this column. See
-  \code{\link{readAgilent}} for details on how to read this
-  column.
+The method "agilent" returns the column "gProcessedSignal"
+read from the raw data file. No extra processing is done
+with this column. See \code{\link{readAgilent}} for details
+on how to read this column.
 
-  See \code{\link{backgroundCorrect}} in the limma package.
+See \code{\link{backgroundCorrect}} in the limma package.
 
-  nonbiologicalout and flagout have an effect only when
-  using methods "normexp" or "rma.
+nonbiologicalout and flagout have an effect only when using
+methods "normexp" or "rma.
 
-  A column "BiologicalFeature" is expected in the fData if
-  nonbiologicalout is TRUE flagout uses the assayData
-  matrix "flagout" if exists. This is a logical or a 0,1
-  matrix. See \code{flags}
+A column "BiologicalFeature" is expected in the fData if
+nonbiologicalout is TRUE flagout uses the assayData matrix
+"flagout" if exists. This is a logical or a 0,1 matrix. See
+\code{flags}
 
-  Depends on the function \code{normexp.fit} in the library
-  \code{limma}. the function \code{normexp.fit} performs a
-  \code{require(affy)} and thus the library \code{affy}
-  gets attached to the path.
+Depends on the function \code{normexp.fit} in the library
+\code{limma}. the function \code{normexp.fit} performs a
+\code{require(affy)} and thus the library \code{affy} gets
+attached to the path.
 }
 \examples{
 setwd (file.path (system.file ("exampledata", package = "agilent")))
@@ -97,10 +95,10 @@ bg <- backgroundCorrectAgilent (rg, nonbiological2na = TRUE)
 summary (exprs (bg))
 }
 \author{
-  David Montaner \email{dmontaner@cipf.es}
+David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
-  \code{\link{readAgilent}} \code{\link{readGPR}}
+\code{\link{readAgilent}} \code{\link{readGPR}}
 }
 \keyword{agilent}
 \keyword{background}
