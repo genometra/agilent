@@ -1,0 +1,44 @@
+---
+title: "agilent"
+author: "David Montaner & Joaquin Panadero"
+date:  "[www.genometra.com](http://www.genometra.com)"
+output:
+  BiocStyle::html_document:
+    toc: yes
+    fig_width: 5
+    fig_height: 5
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+```
+
+
+About
+================================================================================
+
+agilent
+
+```{r}
+library (agilent)
+```
+
+
+
+Session info
+================================================================================
+
+```{r}
+sessionInfo ()
+```
+
+
+
+--------------------------------------------------------------------------------
+<center>
+Created: 2016-04-01 | Revised: 2016-06-06 | Compiled `r Sys.Date()`
+</center>

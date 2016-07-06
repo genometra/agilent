@@ -15,6 +15,9 @@ Imports:
     preprocessCore,
     limma
 Suggests:
-    genefilter
+    genefilter,
+    knitr,
+    rmarkdown,
+    BiocStyle
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
