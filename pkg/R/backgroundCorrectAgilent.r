@@ -71,8 +71,10 @@
 ##' bg <- backgroundCorrectAgilent (rg, nonbiological2na = TRUE)
 ##' summary (exprs (bg))
 ##'
-##  @import limma ##WHY IS THIS NOT WORKING
-##' @importFrom limma normexp.fit normexp.signal
+##' @import Biobase
+##' @import limma
+## @importFrom limma normexp.fit normexp.signal
+##' @importFrom methods validObject new
 ##' 
 ##' @export
 

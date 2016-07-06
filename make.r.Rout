@@ -24,12 +24,12 @@ Type 'q()' to quit R.
 > ## my make file for developing R packages
 > 
 > date ()
-[1] "Wed Jul  6 14:51:37 2016"
+[1] "Wed Jul  6 16:28:47 2016"
 > rm (list = ls ())
 > R.version.string ##"R version 3.2.1 (2015-06-18)"
 [1] "R version 3.3.1 (2016-06-21)"
 > library (devtools); packageDescription ("devtools", fields = "Version") #"1.11.1"
-[1] "1.11.1"
+[1] "1.12.0"
 > library (knitr); packageDescription ("knitr", fields = "Version") #"1.13"
 [1] "1.13"
 > #help (package = devtools)
@@ -54,37 +54,6 @@ Type 'q()' to quit R.
 > document (pkg = "pkg")
 Updating agilent documentation
 Loading agilent
-Loading required package: Biobase
-Loading required package: BiocGenerics
-Loading required package: parallel
-
-Attaching package: ‘BiocGenerics’
-
-The following objects are masked from ‘package:parallel’:
-
-    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-    clusterExport, clusterMap, parApply, parCapply, parLapply,
-    parLapplyLB, parRapply, parSapply, parSapplyLB
-
-The following objects are masked from ‘package:stats’:
-
-    IQR, mad, xtabs
-
-The following objects are masked from ‘package:base’:
-
-    anyDuplicated, append, as.data.frame, as.vector, cbind, colnames,
-    do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
-    intersect, is.unsorted, lapply, lengths, Map, mapply, match, mget,
-    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
-    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
-    union, unique, unlist, unsplit
-
-Welcome to Bioconductor
-
-    Vignettes contain introductory material; view with
-    'browseVignettes()'. To cite Bioconductor, see
-    'citation("Biobase")', and for packages 'citation("pkgname")'.
-
 > 
 > ################################################################################
 > 
@@ -116,7 +85,7 @@ _R_CHECK_CRAN_INCOMING_           : FALSE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking agilent ---------------------------------------------------------------
 '/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
-  CMD check '/tmp/Rtmp9CZiBy/agilent_2.1.0.tar.gz' --as-cran --timings  \
+  CMD check '/tmp/Rtmpn2fWGm/agilent_2.1.0.tar.gz' --as-cran --timings  \
   --no-manual 
 
 * using log directory ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck’
@@ -128,8 +97,7 @@ Checking agilent ---------------------------------------------------------------
 * checking extension type ... Package
 * this is package ‘agilent’ version ‘2.1.0’
 * checking package namespace information ... OK
-* checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘genefilter’
+* checking package dependencies ... OK
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
 * checking for executable files ... OK
@@ -143,8 +111,7 @@ Package suggested but not available for checking: ‘genefilter’
     exampledata  53.9Mb
 * checking package directory ... OK
 * checking ‘build’ directory ... OK
-* checking DESCRIPTION meta-information ... NOTE
-Malformed Title field: should not end in a period.
+* checking DESCRIPTION meta-information ... OK
 * checking top-level files ... OK
 * checking for left-over files ... OK
 * checking index information ... OK
@@ -157,76 +124,11 @@ Malformed Title field: should not end in a period.
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
 * checking loading without being on the library search path ... OK
-* checking dependencies in R code ... NOTE
-Package in Depends field not imported from: ‘Biobase’
-  These packages need to be imported from (in the NAMESPACE file)
-  for when this namespace is loaded but not attached.
+* checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-averageDuplicatedRows : colMedians: no visible binding for global
-  variable ‘median’
-backg: no visible global function definition for ‘validObject’
-backg: no visible global function definition for
-  ‘assayDataElementNames’
-backg: no visible global function definition for ‘assayDataElement’
-backg: no visible global function definition for ‘exprs’
-backgroundCorrectAgilent: no visible global function definition for
-  ‘validObject’
-backgroundCorrectAgilent: no visible global function definition for
-  ‘assayDataElementNames’
-backgroundCorrectAgilent: no visible global function definition for
-  ‘fData’
-backgroundCorrectAgilent: no visible global function definition for
-  ‘assayDataElement’
-backgroundCorrectAgilent: no visible global function definition for
-  ‘assayDataElementReplace’
-flags: no visible global function definition for ‘validObject’
-flags: no visible global function definition for
-  ‘assayDataElementNames’
-flags: no visible global function definition for ‘assayDataElement’
-flags: no visible global function definition for ‘exprs’
-foreg: no visible global function definition for ‘validObject’
-foreg: no visible global function definition for
-  ‘assayDataElementNames’
-foreg: no visible global function definition for ‘assayDataElement’
-normalizeAgilent: no visible global function definition for
-  ‘validObject’
-normalizeAgilent: no visible global function definition for
-  ‘assayDataElementNames’
-normalizeAgilent: no visible global function definition for ‘fData’
-normalizeAgilent: no visible global function definition for ‘exprs’
-normalizeAgilent: no visible global function definition for ‘exprs<-’
-normalizeAgilent: no visible binding for global variable ‘median’
-normalizeAgilent: no visible global function definition for
-  ‘assayDataElementReplace’
-readAgilent: no visible global function definition for ‘assayDataNew’
-readAgilent: no visible global function definition for ‘read.table’
-readAgilent: no visible binding for global variable ‘data’
-readAgilent: no visible global function definition for ‘storageMode<-’
-readAgilent: no visible global function definition for ‘new’
-readAgilent: no visible global function definition for ‘validObject’
-readAgilentHeader: no visible global function definition for
-  ‘read.table’
-readGPR: no visible global function definition for ‘assayDataNew’
-readGPR: no visible global function definition for ‘read.table’
-readGPR: no visible global function definition for
-  ‘assayDataElementNames’
-readGPR: no visible global function definition for ‘storageMode<-’
-readGPR: no visible global function definition for ‘new’
-readGPR: no visible global function definition for ‘validObject’
-readGPRHeaderS: no visible global function definition for ‘read.table’
-Undefined global functions or variables:
-  assayDataElement assayDataElementNames assayDataElementReplace
-  assayDataNew data exprs exprs<- fData median new read.table
-  storageMode<- validObject
-Consider adding
-  importFrom("methods", "new", "validObject")
-  importFrom("stats", "median")
-  importFrom("utils", "data", "read.table")
-to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-contains 'methods').
+* checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... NOTE
@@ -296,13 +198,13 @@ Execution halted
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 ERROR, 6 NOTEs
+Status: 1 ERROR, 2 NOTEs
 See
   ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck/00check.log’
 for details.
 
 R CMD check results
-1 error  | 0 warnings | 6 notes
+1 error  | 0 warnings | 2 notes
 checking examples ... ERROR
 Running examples in ‘agilent-Ex.R’ failed
 The error most likely occurred in:
@@ -326,44 +228,10 @@ Error in `[.data.frame`(read.features, , col) :
 Calls: readAgilent -> [ -> [.data.frame
 Execution halted
 
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘genefilter’
-
 checking installed package size ... NOTE
   installed size is 54.2Mb
   sub-directories of 1Mb or more:
     exampledata  53.9Mb
-
-checking DESCRIPTION meta-information ... NOTE
-Malformed Title field: should not end in a period.
-
-checking dependencies in R code ... NOTE
-Package in Depends field not imported from: ‘Biobase’
-  These packages need to be imported from (in the NAMESPACE file)
-  for when this namespace is loaded but not attached.
-
-checking R code for possible problems ... NOTE
-averageDuplicatedRows : colMedians: no visible binding for global
-  variable ‘median’
-backg: no visible global function definition for ‘validObject’
-backg: no visible global function definition for
-  ‘assayDataElementNames’
-backg: no visible global function definition for ‘assayDataElement’
-backg: no visible global function definition for ‘exprs’
-backgroundCorrectAgilent: no visible global function definition for
-  ‘validObject’
-... 43 lines ...
-readGPRHeaderS: no visible global function definition for ‘read.table’
-Undefined global functions or variables:
-  assayDataElement assayDataElementNames assayDataElementReplace
-  assayDataNew data exprs exprs<- fData median new read.table
-  storageMode<- validObject
-Consider adding
-  importFrom("methods", "new", "validObject")
-  importFrom("stats", "median")
-  importFrom("utils", "data", "read.table")
-to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-contains 'methods').
 
 checking Rd line widths ... NOTE
 Rd file 'normalizeAgilent.Rd':
@@ -517,22 +385,21 @@ locale:
 [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
-[1] parallel  stats     graphics  grDevices utils     datasets  methods  
-[8] base     
+[1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] BiocStyle_1.8.0     agilent_2.1.0       Biobase_2.30.0     
-[4] BiocGenerics_0.16.1 knitr_1.13          devtools_1.11.1    
+[1] BiocStyle_1.8.0 agilent_2.1.0   knitr_1.13      devtools_1.12.0
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.12.5           roxygen2_5.0.1        digest_0.6.9         
- [4] withr_1.0.1           affy_1.48.0           formatR_1.4          
+ [4] withr_1.0.2           affy_1.48.0           formatR_1.4          
  [7] magrittr_1.5          evaluate_0.9          BiocInstaller_1.20.3 
 [10] zlibbioc_1.16.0       stringi_1.1.1         affyio_1.40.0        
 [13] limma_3.26.9          preprocessCore_1.32.0 rmarkdown_0.9.6      
-[16] tools_3.3.1           stringr_1.0.0         yaml_2.1.13          
-[19] htmltools_0.3.5       memoise_1.0.0        
+[16] tools_3.3.1           stringr_1.0.0         Biobase_2.30.0       
+[19] yaml_2.1.13           parallel_3.3.1        BiocGenerics_0.16.1  
+[22] htmltools_0.3.5       memoise_1.0.0        
 > q ("no")
 > proc.time()
    user  system elapsed 
- 45.624   2.336  50.176 
+ 40.068   2.068  44.749 

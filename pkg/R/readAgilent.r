@@ -253,7 +253,7 @@ readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo =
         cat ("\n") #nice output
         message ("further features could not be derived")
         cat ("\n") #nice output
-        message (paste (c("columns", setdiff (neededcol, colnames (data)),
+        message (paste (c("columns", setdiff (neededcol, colnames (featuredata)),
                           "are needed to derive further features"), collapse = " "))
         cat ("\n") #nice output
       }

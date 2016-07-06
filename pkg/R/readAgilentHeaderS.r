@@ -43,6 +43,7 @@
 ##' ra$feparams[,1:3]
 ##' class (ra[[3]])
 ##'
+##' @importFrom utils read.table
 ##' @export
 
 readAgilentHeaderS <- function (files = dir (pattern = ".txt"), samplenames = sub (".txt", "", files),

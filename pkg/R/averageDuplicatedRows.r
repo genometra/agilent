@@ -8,6 +8,17 @@
 
 ## min and max methods have not been tested much
 
+## colMedians is no too efficient may be use this one: 
+## Use the function colMedians form pakage [matrixStats](http://cran.fhcrc.org/web/packages/matrixStats/index.html)
+## within the function averageDuplicatedRows
+
+##' @importFrom stats median
+## no export
+colMedians <- function (x, na.rm) {
+    apply (x, 2, median, na.rm = na.rm)
+}
+
+
 ##' @name averageDuplicatedRows
 ##' @author David Montaner \email{dmontaner@@cipf.es}
 ##' 
@@ -115,9 +126,6 @@ averageDuplicatedRows <- function (mat, ids, original.rows = FALSE,
     }
 
     if (summarystat == "median") {
-      colMedians <- function (x, na.rm) {    ##NOT TOO EFFICIENT; it takes 10 times longer than colMeans
-        apply (x, 2, median, na.rm = na.rm)
-      }
       la2 <- lapply (la1, FUN = colMedians, na.rm = na.rm)
     }
 

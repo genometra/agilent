@@ -34,21 +34,20 @@ sessionInfo ()
 ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
-## [1] parallel  stats     graphics  grDevices utils     datasets  methods  
-## [8] base     
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] BiocStyle_1.8.0     agilent_2.1.0       Biobase_2.30.0     
-## [4] BiocGenerics_0.16.1 knitr_1.13          devtools_1.11.1    
+## [1] BiocStyle_1.8.0 agilent_2.1.0   knitr_1.13      devtools_1.12.0
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.5           roxygen2_5.0.1        digest_0.6.9         
-##  [4] withr_1.0.1           affy_1.48.0           formatR_1.4          
+##  [4] withr_1.0.2           affy_1.48.0           formatR_1.4          
 ##  [7] magrittr_1.5          evaluate_0.9          BiocInstaller_1.20.3 
 ## [10] zlibbioc_1.16.0       stringi_1.1.1         affyio_1.40.0        
 ## [13] limma_3.26.9          preprocessCore_1.32.0 rmarkdown_0.9.6      
-## [16] tools_3.3.1           stringr_1.0.0         yaml_2.1.13          
-## [19] htmltools_0.3.5       memoise_1.0.0
+## [16] tools_3.3.1           stringr_1.0.0         Biobase_2.30.0       
+## [19] yaml_2.1.13           parallel_3.3.1        BiocGenerics_0.16.1  
+## [22] htmltools_0.3.5       memoise_1.0.0
 ```
 
 

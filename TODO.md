@@ -21,7 +21,11 @@ El script `make.r` deberia compilar la libreria, vignetas incluidas y demas.
 Una vez se ejecuta el script `make.r` aparecera un fichero `check/agilent.Rcheck/00check.log`.
 En este fichero no debe haber ningun error y cuantos menos warnings o notas mejor.
 
-
+La documentacion de cada una de las funciones se edita en el script R de la propia funcion.
+NO en el directorio `man`.
+Los ficheros del directorio man se generan automaticamente en el `make.r`
+con la libreria `roxygen2`
+<https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html>
 
 
 Cosas para hacer por orden de prioridad
@@ -57,6 +61,15 @@ la mayoria de ellos deberian cambiarse por funciones `print` o mejor `cat`.
 --------------------------------------------------------------------------------
 
 Vigneta
+
+--------------------------------------------------------------------------------
+
+Revisar si es necesaria la dependencia del paquete `genefilter`.
+No se por que la puse en su momento... creo que por alguna prueba o dato adicional para la documentacion.
+
+--------------------------------------------------------------------------------
+
+Revisar el codigo y ayuda para que 
 
 --------------------------------------------------------------------------------
 

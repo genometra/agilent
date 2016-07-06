@@ -12,7 +12,5 @@
 ##' @title Reading and normalizing Agilent one color microarray data files.
 ##'
 ##' @description Functions for reading, exploring and normalizing Agilent one color microarray data.
-##'
-## @import 
-##'
+
 NULL

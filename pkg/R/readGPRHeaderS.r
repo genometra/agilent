@@ -48,7 +48,7 @@
 ##' hs$columns[1:5]
 ##'
 ## @import limma
-##' @importFrom limma readGPRHeader
+## @importFrom limma readGPRHeader
 ##' 
 ##' @export
 
