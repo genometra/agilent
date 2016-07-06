@@ -1,0 +1,537 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #! /usr/bin/Rscript --vanilla
+> 
+> ## make.r
+> ## 2016-06-03 david.montaner@gmail.com
+> ## my make file for developing R packages
+> 
+> date ()
+[1] "Wed Jul  6 12:02:24 2016"
+> rm (list = ls ())
+> R.version.string ##"R version 3.2.1 (2015-06-18)"
+[1] "R version 3.3.1 (2016-06-21)"
+> library (devtools); packageDescription ("devtools", fields = "Version") #"1.11.1"
+[1] "1.11.1"
+> library (knitr); packageDescription ("knitr", fields = "Version") #"1.13"
+[1] "1.13"
+> #help (package = devtools)
+> 
+> ################################################################################
+> 
+> 
+> ## Clean up some directories. Usually not needed.
+> unlink ("local", recursive = TRUE)
+> unlink ("check", recursive = TRUE)
+> ##unlink ("pkg/man", recursive = TRUE)  ## BE CAREFUL HERE !!!
+> ##unlink ("pkg/NAMESPACE")              ## BE CAREFUL HERE !!!
+> 
+> ### Create directories
+> dir.create ("local") ## to install the library locally
+> dir.create ("check") ## to keep the output of the check command
+> 
+> ################################################################################
+> 
+> 
+> ### Build documentation and NAMESPACE
+> document (pkg = "pkg")
+Updating agilent documentation
+Loading agilent
+Loading required package: Biobase
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, as.vector, cbind, colnames,
+    do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
+    intersect, is.unsorted, lapply, lengths, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unlist, unsplit
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+> 
+> ################################################################################
+> 
+> 
+> ### FULL CHECK
+> check (pkg = "pkg", check_dir = "check")
+Updating agilent documentation
+Loading agilent
+Setting env vars ---------------------------------------------------------------
+CFLAGS  : -Wall -pedantic
+CXXFLAGS: -Wall -pedantic
+Building agilent ---------------------------------------------------------------
+'/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
+  CMD build '/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg'  \
+  --no-resave-data --no-manual 
+
+* checking for file ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg/DESCRIPTION’ ... OK
+* preparing ‘agilent’:
+* checking DESCRIPTION meta-information ... OK
+* installing the package to build vignettes
+* creating vignettes ... OK
+* checking for LF line-endings in source and make files
+* checking for empty or unneeded directories
+* building ‘agilent_2.0.2.tar.gz’
+
+Setting env vars ---------------------------------------------------------------
+_R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
+_R_CHECK_CRAN_INCOMING_           : FALSE
+_R_CHECK_FORCE_SUGGESTS_          : FALSE
+Checking agilent ---------------------------------------------------------------
+'/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
+  CMD check '/tmp/RtmpU52cFX/agilent_2.0.2.tar.gz' --as-cran --timings  \
+  --no-manual 
+
+* using log directory ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck’
+* using R version 3.3.1 (2016-06-21)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using options ‘--no-manual --as-cran’
+* checking for file ‘agilent/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘agilent’ version ‘2.0.2’
+* checking package namespace information ... OK
+* checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘genefilter’
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘agilent’ can be installed ... OK
+* checking installed package size ... NOTE
+  installed size is 54.2Mb
+  sub-directories of 1Mb or more:
+    exampledata  53.9Mb
+* checking package directory ... OK
+* checking ‘build’ directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Malformed Title field: should not end in a period.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... NOTE
+Package in Depends field not imported from: ‘Biobase’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+averageDuplicatedRows : colMedians: no visible binding for global
+  variable ‘median’
+backg: no visible global function definition for ‘validObject’
+backg: no visible global function definition for
+  ‘assayDataElementNames’
+backg: no visible global function definition for ‘assayDataElement’
+backg: no visible global function definition for ‘exprs’
+backgroundCorrectAgilent: no visible global function definition for
+  ‘validObject’
+backgroundCorrectAgilent: no visible global function definition for
+  ‘assayDataElementNames’
+backgroundCorrectAgilent: no visible global function definition for
+  ‘fData’
+backgroundCorrectAgilent: no visible global function definition for
+  ‘assayDataElement’
+backgroundCorrectAgilent: no visible global function definition for
+  ‘assayDataElementReplace’
+flags: no visible global function definition for ‘validObject’
+flags: no visible global function definition for
+  ‘assayDataElementNames’
+flags: no visible global function definition for ‘assayDataElement’
+flags: no visible global function definition for ‘exprs’
+foreg: no visible global function definition for ‘validObject’
+foreg: no visible global function definition for
+  ‘assayDataElementNames’
+foreg: no visible global function definition for ‘assayDataElement’
+normalizeAgilent: no visible global function definition for
+  ‘validObject’
+normalizeAgilent: no visible global function definition for
+  ‘assayDataElementNames’
+normalizeAgilent: no visible global function definition for ‘fData’
+normalizeAgilent: no visible global function definition for ‘exprs’
+normalizeAgilent: no visible global function definition for ‘exprs<-’
+normalizeAgilent: no visible binding for global variable ‘median’
+normalizeAgilent: no visible global function definition for
+  ‘assayDataElementReplace’
+readAgilent: no visible global function definition for ‘assayDataNew’
+readAgilent: no visible global function definition for ‘read.table’
+readAgilent: no visible binding for global variable ‘data’
+readAgilent: no visible global function definition for ‘storageMode<-’
+readAgilent: no visible global function definition for ‘new’
+readAgilent: no visible global function definition for ‘validObject’
+readAgilentHeader: no visible global function definition for
+  ‘read.table’
+readGPR: no visible global function definition for ‘assayDataNew’
+readGPR: no visible global function definition for ‘read.table’
+readGPR: no visible global function definition for
+  ‘assayDataElementNames’
+readGPR: no visible global function definition for ‘storageMode<-’
+readGPR: no visible global function definition for ‘new’
+readGPR: no visible global function definition for ‘validObject’
+readGPRHeaderS: no visible global function definition for ‘read.table’
+Undefined global functions or variables:
+  assayDataElement assayDataElementNames assayDataElementReplace
+  assayDataNew data exprs exprs<- fData median new read.table
+  storageMode<- validObject
+Consider adding
+  importFrom("methods", "new", "validObject")
+  importFrom("stats", "median")
+  importFrom("utils", "data", "read.table")
+to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+contains 'methods').
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... NOTE
+Rd file 'normalizeAgilent.Rd':
+  \examples lines wider than 100 characters:
+     summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
+     table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
+
+Rd file 'readAgilent.Rd':
+  \examples lines wider than 100 characters:
+     ra <- readAgilent (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+
+Rd file 'readAgilentHeaderS.Rd':
+  \examples lines wider than 100 characters:
+     ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"), samplenames = c ("first", "second"), includeFileNames = FALSE)
+
+Rd file 'readGPR.Rd':
+  \examples lines wider than 100 characters:
+     rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+
+These lines will be truncated in the PDF manual.
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking installed files from ‘inst/doc’ ... OK
+* checking files in ‘vignettes’ ... OK
+* checking examples ... ERROR
+Running examples in ‘agilent-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: backgroundCorrectAgilent
+> ### Title: Background Correct Agilent.
+> ### Aliases: backgroundCorrectAgilent
+> ### Keywords: agilent background correction
+> 
+> ### ** Examples
+> 
+> setwd (file.path (system.file ("exampledata", package = "agilent")))
+> dir ()
+[1] "GPR1.gpr"     "GPR2.gpr"     "agilent1.txt" "agilent2.txt"
+> 
+> ra <- readAgilent ()
+
+reading header: agilent1.txt
+reading header: agilent2.txt
+
+Warning in readAgilent() :
+  columns probe_mappings are not found in your data
+Reading:
+     files          samplenames
+[1,] "agilent1.txt" "agilent1" 
+[2,] "agilent2.txt" "agilent2" 
+
+Reading: agilent1.txt
+Warning in read.table(file = fichero, header = TRUE, sep = "\t", quote = "",  :
+  not all columns named in 'colClasses' exist
+Error in `[.data.frame`(read.features, , col) : 
+  undefined columns selected
+Calls: readAgilent -> [ -> [.data.frame
+Execution halted
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes in ‘inst/doc’ ... OK
+* checking re-building of vignette outputs ... OK
+* DONE
+
+Status: 1 ERROR, 6 NOTEs
+See
+  ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck/00check.log’
+for details.
+
+R CMD check results
+1 error  | 0 warnings | 6 notes
+checking examples ... ERROR
+Running examples in ‘agilent-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: backgroundCorrectAgilent
+> ### Title: Background Correct Agilent.
+> ### Aliases: backgroundCorrectAgilent
+> ### Keywords: agilent background correction
+> 
+... 15 lines ...
+     files          samplenames
+[1,] "agilent1.txt" "agilent1" 
+[2,] "agilent2.txt" "agilent2" 
+
+Reading: agilent1.txt
+Warning in read.table(file = fichero, header = TRUE, sep = "\t", quote = "",  :
+  not all columns named in 'colClasses' exist
+Error in `[.data.frame`(read.features, , col) : 
+  undefined columns selected
+Calls: readAgilent -> [ -> [.data.frame
+Execution halted
+
+checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘genefilter’
+
+checking installed package size ... NOTE
+  installed size is 54.2Mb
+  sub-directories of 1Mb or more:
+    exampledata  53.9Mb
+
+checking DESCRIPTION meta-information ... NOTE
+Malformed Title field: should not end in a period.
+
+checking dependencies in R code ... NOTE
+Package in Depends field not imported from: ‘Biobase’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+
+checking R code for possible problems ... NOTE
+averageDuplicatedRows : colMedians: no visible binding for global
+  variable ‘median’
+backg: no visible global function definition for ‘validObject’
+backg: no visible global function definition for
+  ‘assayDataElementNames’
+backg: no visible global function definition for ‘assayDataElement’
+backg: no visible global function definition for ‘exprs’
+backgroundCorrectAgilent: no visible global function definition for
+  ‘validObject’
+... 43 lines ...
+readGPRHeaderS: no visible global function definition for ‘read.table’
+Undefined global functions or variables:
+  assayDataElement assayDataElementNames assayDataElementReplace
+  assayDataNew data exprs exprs<- fData median new read.table
+  storageMode<- validObject
+Consider adding
+  importFrom("methods", "new", "validObject")
+  importFrom("stats", "median")
+  importFrom("utils", "data", "read.table")
+to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+contains 'methods').
+
+checking Rd line widths ... NOTE
+Rd file 'normalizeAgilent.Rd':
+  \examples lines wider than 100 characters:
+     summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
+     table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
+
+Rd file 'readAgilent.Rd':
+  \examples lines wider than 100 characters:
+     ra <- readAgilent (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+
+Rd file 'readAgilentHeaderS.Rd':
+  \examples lines wider than 100 characters:
+     ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"), samplenames = c ("first", "second"), includeFileNames = FALSE)
+
+Rd file 'readGPR.Rd':
+  \examples lines wider than 100 characters:
+     rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+
+These lines will be truncated in the PDF manual.
+> 
+> ## ### First (quick) CHECK of the library
+> ## see how to avoid testing here ???
+> ## check (pkg = "pkg",
+> ##        document = FALSE,      ## document: if ‘TRUE’ (the default), will update and check documentation before running formal check.
+> ##        check_dir = "check",   ## check_dir: the directory in which the package is checked
+> ##        vignettes = FALSE,                           ## do not run vignette code ............ when BUILDING
+> ##        args = c ("--no-examples", "--no-vignettes") ## do not run vignette code and examples when CHECKING -> args: Additional arguments passed to ‘R CMD check’
+> ##        )
+> 
+> ## ## Examples: run separately from check
+> ## run_examples (pkg = "pkg")
+> 
+> ## ### Test
+> ## test (pkg = "pkg")
+> 
+> 
+> ################################################################################
+> 
+> 
+> ### Vignettes
+> build_vignettes (pkg = "pkg")
+Building agilent vignettes
+Moving agilent.html, agilent.R to inst/doc/
+Copying agilent.Rmd to inst/doc/
+> 
+> ## md format for Github
+> knit (input = "pkg/vignettes/agilent.Rmd")
+
+
+processing file: pkg/vignettes/agilent.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.........                                                        |  14%
+  ordinary text without R code
+
+  |                                                                         |...................                                              |  29%
+label: style (with options) 
+List of 2
+ $ echo   : logi FALSE
+ $ results: chr "asis"
+
+  |                                                                         |............................                                     |  43%
+  ordinary text without R code
+
+  |                                                                         |.....................................                            |  57%
+label: unnamed-chunk-1
+  |                                                                         |..............................................                   |  71%
+  ordinary text without R code
+
+  |                                                                         |........................................................         |  86%
+label: unnamed-chunk-2
+  |                                                                         |.................................................................| 100%
+   inline R code fragments
+
+
+output file: agilent.md
+
+[1] "agilent.md"
+> li <- readLines ("agilent.md")
+> li <- li[-(1:which (li == "</style>"))]
+> writeLines (li, "agilent.md")
+> ##system ("pandoc -f markdown -t html -o SNPediaR.html SNPediaR.md")
+> 
+> ################################################################################
+> 
+> 
+> ### Local Installation
+> install.packages ("pkg", lib = "local", repos = NULL, INSTALL_opts = "--html")
+* installing *source* package ‘agilent’ ...
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+  converting help for package ‘agilent’
+    finding HTML links ... done
+    agilent-package                         html  
+    averageDuplicatedRows                   html  
+    backg                                   html  
+    backgroundCorrectAgilent                html  
+    finding level-2 HTML links ... done
+
+    deriveAgilentFeatures                   html  
+    flags                                   html  
+    foreg                                   html  
+    normalizeAgilent                        html  
+    readAgilent                             html  
+    readAgilentHeader                       html  
+    readAgilentHeaderS                      html  
+    readGPR                                 html  
+    readGPRHeaderS                          html  
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (agilent)
+> 
+> ################################################################################
+> 
+> 
+> ### Build the package
+> build (pkg = "pkg", manual = TRUE, vignettes = TRUE)
+'/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
+  CMD build '/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg'  \
+  --no-resave-data 
+
+* checking for file ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg/DESCRIPTION’ ... OK
+* preparing ‘agilent’:
+* checking DESCRIPTION meta-information ... OK
+* installing the package to build vignettes
+* creating vignettes ... OK
+* checking for LF line-endings in source and make files
+* checking for empty or unneeded directories
+* building ‘agilent_2.0.2.tar.gz’
+
+[1] "/home/dmontaner/programas/r_mis_librerias/agilent/agilent/agilent_2.0.2.tar.gz"
+> 
+> 
+> ###EXIT
+> warnings ()
+NULL
+> sessionInfo ()
+R version 3.3.1 (2016-06-21)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 14.04.4 LTS
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] parallel  stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] BiocStyle_1.8.0     agilent_2.0.2       Biobase_2.30.0     
+[4] BiocGenerics_0.16.1 knitr_1.13          devtools_1.11.1    
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.5           roxygen2_5.0.1        digest_0.6.9         
+ [4] withr_1.0.1           formatR_1.4           magrittr_1.5         
+ [7] evaluate_0.9          stringi_1.1.1         limma_3.26.9         
+[10] preprocessCore_1.32.0 rmarkdown_0.9.6       tools_3.3.1          
+[13] stringr_1.0.0         yaml_2.1.13           htmltools_0.3.5      
+[16] memoise_1.0.0        
+> q ("no")
+> proc.time()
+   user  system elapsed 
+ 47.988   2.668  53.072 
