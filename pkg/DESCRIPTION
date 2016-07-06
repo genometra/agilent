@@ -1,13 +1,20 @@
 Package: agilent
 Type: Package
 Title: Reading and normalizing Agilent one color microarray data files.
-Version: 2.0.1
+Version: 2.0.2
 Date: 2013-11-29
-Author: David Montaner <dmontaner@cipf.es>
-Maintainer: David Montaner <dmontaner@cipf.es>
-Description: Functions for reading, exploring and normalizing Agilent one color microarray data.
-License: GPL
+Authors@R: person ("David", "Montaner", email = "david.montaner@gmail.com", role = c ("aut", "cre"))
+Description: Functions for reading, exploring and normalizing Agilent one color
+    microarray data.
+License: GPL-2
 LazyLoad: yes
-Depends: R (>= 2.10), Biobase
-Imports: preprocessCore, limma
-Suggests: genefilter
+Depends:
+    R (>= 2.10),
+    Biobase
+Imports:
+    preprocessCore,
+    limma
+Suggests:
+    genefilter
+VignetteBuilder: knitr
+RoxygenNote: 5.0.1
