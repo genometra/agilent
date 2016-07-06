@@ -21,4 +21,4 @@ Install
 The latest version of the library can be installed form the R session doing:
 
     library (devtools)
-    install_github ("agilent",  username = "dmontaner")
+    install_github ("dmontaner/agilent")
