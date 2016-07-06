@@ -2,6 +2,8 @@
 agilent
 ================================================================================
 
+[![Build Status](https://travis-ci.org/genometra/agilent.svg?branch=master)](https://travis-ci.org/genometra/agilent)
+
 An R library to normalize Agilent one color microarray data.
 
 Includes functions for:
