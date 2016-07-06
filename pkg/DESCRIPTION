@@ -1,7 +1,7 @@
 Package: agilent
 Type: Package
 Title: Reading and normalizing Agilent one color microarray data files.
-Version: 2.0.2
+Version: 2.1.0
 Date: 2013-11-29
 Authors@R: person ("David", "Montaner", email = "david.montaner@gmail.com", role = c ("aut", "cre"))
 Description: Functions for reading, exploring and normalizing Agilent one color
@@ -13,7 +13,8 @@ Depends:
     Biobase
 Imports:
     preprocessCore,
-    limma
+    limma,
+    affy
 Suggests:
     genefilter,
     knitr,

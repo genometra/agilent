@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 > ## my make file for developing R packages
 > 
 > date ()
-[1] "Wed Jul  6 12:02:24 2016"
+[1] "Wed Jul  6 14:51:37 2016"
 > rm (list = ls ())
 > R.version.string ##"R version 3.2.1 (2015-06-18)"
 [1] "R version 3.3.1 (2016-06-21)"
@@ -108,7 +108,7 @@ Building agilent ---------------------------------------------------------------
 * creating vignettes ... OK
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
-* building ‘agilent_2.0.2.tar.gz’
+* building ‘agilent_2.1.0.tar.gz’
 
 Setting env vars ---------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -116,7 +116,7 @@ _R_CHECK_CRAN_INCOMING_           : FALSE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking agilent ---------------------------------------------------------------
 '/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
-  CMD check '/tmp/RtmpU52cFX/agilent_2.0.2.tar.gz' --as-cran --timings  \
+  CMD check '/tmp/Rtmp9CZiBy/agilent_2.1.0.tar.gz' --as-cran --timings  \
   --no-manual 
 
 * using log directory ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck’
@@ -126,7 +126,7 @@ Checking agilent ---------------------------------------------------------------
 * using options ‘--no-manual --as-cran’
 * checking for file ‘agilent/DESCRIPTION’ ... OK
 * checking extension type ... Package
-* this is package ‘agilent’ version ‘2.0.2’
+* this is package ‘agilent’ version ‘2.1.0’
 * checking package namespace information ... OK
 * checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘genefilter’
@@ -495,9 +495,9 @@ output file: agilent.md
 * creating vignettes ... OK
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
-* building ‘agilent_2.0.2.tar.gz’
+* building ‘agilent_2.1.0.tar.gz’
 
-[1] "/home/dmontaner/programas/r_mis_librerias/agilent/agilent/agilent_2.0.2.tar.gz"
+[1] "/home/dmontaner/programas/r_mis_librerias/agilent/agilent/agilent_2.1.0.tar.gz"
 > 
 > 
 > ###EXIT
@@ -521,17 +521,18 @@ attached base packages:
 [8] base     
 
 other attached packages:
-[1] BiocStyle_1.8.0     agilent_2.0.2       Biobase_2.30.0     
+[1] BiocStyle_1.8.0     agilent_2.1.0       Biobase_2.30.0     
 [4] BiocGenerics_0.16.1 knitr_1.13          devtools_1.11.1    
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.12.5           roxygen2_5.0.1        digest_0.6.9         
- [4] withr_1.0.1           formatR_1.4           magrittr_1.5         
- [7] evaluate_0.9          stringi_1.1.1         limma_3.26.9         
-[10] preprocessCore_1.32.0 rmarkdown_0.9.6       tools_3.3.1          
-[13] stringr_1.0.0         yaml_2.1.13           htmltools_0.3.5      
-[16] memoise_1.0.0        
+ [4] withr_1.0.1           affy_1.48.0           formatR_1.4          
+ [7] magrittr_1.5          evaluate_0.9          BiocInstaller_1.20.3 
+[10] zlibbioc_1.16.0       stringi_1.1.1         affyio_1.40.0        
+[13] limma_3.26.9          preprocessCore_1.32.0 rmarkdown_0.9.6      
+[16] tools_3.3.1           stringr_1.0.0         yaml_2.1.13          
+[19] htmltools_0.3.5       memoise_1.0.0        
 > q ("no")
 > proc.time()
    user  system elapsed 
- 47.988   2.668  53.072 
+ 45.624   2.336  50.176 
