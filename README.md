@@ -1,6 +1,6 @@
 
 agilent
-=======
+================================================================================
 
 An R library to normalize Agilent one color microarray data.
 
@@ -16,9 +16,14 @@ Includes functions for:
 
 
 Install
--------
+--------------------------------------------------------------------------------
 
 The latest version of the library can be installed form the R session doing:
 
     library (devtools)
     install_github ("dmontaner/agilent/pkg")
+
+Vignette
+--------------------------------------------------------------------------------
+
+- [agilent.md](https://github.com/genometra/SNPediaR/blob/master/SNPediaR.md)
