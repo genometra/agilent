@@ -26,4 +26,4 @@ The latest version of the library can be installed form the R session doing:
 Vignette
 --------------------------------------------------------------------------------
 
-- [agilent.md](https://github.com/genometra/SNPediaR/blob/master/SNPediaR.md)
+- [agilent.md](agilent/blob/master/agilent.md)
