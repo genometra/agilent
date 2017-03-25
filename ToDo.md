@@ -31,11 +31,11 @@ con la libreria `roxygen2`
 Cosas para hacer por orden de prioridad
 ================================================================================
 
-[x] Revisar ejemplos. Algunos fallan cuando se ejecutan. Esto se ve en los logs de la compilacion del paquete.
+- [x] Revisar ejemplos. Algunos fallan cuando se ejecutan. Esto se ve en los logs de la compilacion del paquete.
 
 --------------------------------------------------------------------------------
 
-[x] Hacer que detecte automaticamente la columna de foreground.
+- [x] Hacer que detecte automaticamente la columna de foreground.
 
 Esta puede ser:
 
@@ -51,7 +51,7 @@ pero por si acaso este es el paquete que se utiliza para procesar la documentaci
 
 --------------------------------------------------------------------------------
 
-[x] Quitar los warnings.
+- [x] Quitar los warnings.
 
 Cuando escribi el paquete puse muchos mensajes y warnings (funciones de R `message` y `warning`)
 la mayoria de ellos deberian cambiarse por funciones `print` o mejor `cat`.
