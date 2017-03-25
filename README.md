@@ -23,5 +23,7 @@ Install
 
 The latest version of the library can be installed form the R session doing:
 
+    install.packages ("devtools")
     library (devtools)
-    install_github ("dmontaner/agilent/pkg")
+    setRepositories (ind=1:2)
+    install_github ("genometra/agilent/pkg")
