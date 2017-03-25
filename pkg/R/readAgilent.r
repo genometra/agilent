@@ -182,7 +182,7 @@ readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo =
   for (v in cols2read) assign (v, value = NULL, envir = assaydata)
 
   ##colum class. Setting as NULL columns that should not be read
-  col.class <- c (primerafila = "NULL", headers$fieldType)
+  col.class <- c (FEATURES = "NULL", headers$fieldType)
   col.class[!names (col.class) %in% cols2read] <- "NULL"
   col.class <- sub ("logical", "integer", col.class)
 
