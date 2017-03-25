@@ -2,8 +2,8 @@
 % Please edit documentation in R/agilent.r
 \docType{package}
 \name{agilent-package}
-\alias{agilent}
 \alias{agilent-package}
+\alias{agilent}
 \title{Reading and normalizing Agilent one color microarray data files.}
 \description{
 Functions for reading, exploring and normalizing Agilent one color microarray data.
@@ -11,4 +11,3 @@ Functions for reading, exploring and normalizing Agilent one color microarray da
 \author{
 David Montaner \email{dmontaner@cipf.es}
 }
-

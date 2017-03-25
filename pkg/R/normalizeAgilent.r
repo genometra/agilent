@@ -37,6 +37,7 @@
 ##' @return An ExpressionSet containing normalized intensities in the "exprs" slot.
 ##' 
 ##' @examples
+##' library (Biobase)
 ##' setwd (file.path (system.file ("exampledata", package = "agilent")))
 ##' dir ()
 ##' 
@@ -88,7 +89,8 @@
 ##' summary (exprs (norm5[!biological,]))
 ##' summary (exprs (norm5[biological,]))
 ##' summary (preprocessCore::normalize.quantiles (exprs (ba[biological,])))
-##' summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
+##' summary (exprs (norm5[biological,]) -
+##'          preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
 ##' 
 ##' norm6 <- normalizeAgilent (object = ba, method = "scale", logit = FALSE,
 ##'                            nonbiologicalout = TRUE, nonbiological2na = TRUE,
@@ -102,7 +104,8 @@
 ##' summary (exprs (norm6[!biological,]))
 ##' summary (exprs (norm6[biological,]))
 ##' summary (limma::normalizeMedianAbsValues (exprs (ba[biological,])))
-##' table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
+##' table (exprs (norm6[biological,]) ==
+##'        limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
 ##'
 ##' @import preprocessCore
 ## @importFrom preprocessCore normalize.quantiles.determine.target normalize.quantiles.use.target

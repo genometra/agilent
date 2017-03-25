@@ -48,6 +48,7 @@
 ##' @return An ExpressionSet containing background corrected features in the "exprs" slot.
 ##' 
 ##' @examples
+##' library (Biobase)
 ##' setwd (file.path (system.file ("exampledata", package = "agilent")))
 ##' dir ()
 ##'

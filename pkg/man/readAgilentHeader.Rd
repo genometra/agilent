@@ -26,13 +26,12 @@ myfile
 readAgilentHeader (file = myfile)
 
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{readAgilentHeaderS}} \code{\link{readAgilent}} \code{\link{readGPR}}
+}
+\author{
+David Montaner \email{dmontaner@cipf.es}
 }
 \keyword{agilent}
 \keyword{header}
 \keyword{read}
-

@@ -1,6 +1,6 @@
 
-R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
-Copyright (C) 2016 The R Foundation for Statistical Computing
+R version 3.3.3 (2017-03-06) -- "Another Canoe"
+Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -24,14 +24,14 @@ Type 'q()' to quit R.
 > ## my make file for developing R packages
 > 
 > date ()
-[1] "Wed Jul  6 16:28:47 2016"
+[1] "Sat Mar 25 13:43:35 2017"
 > rm (list = ls ())
 > R.version.string ##"R version 3.2.1 (2015-06-18)"
-[1] "R version 3.3.1 (2016-06-21)"
+[1] "R version 3.3.3 (2017-03-06)"
 > library (devtools); packageDescription ("devtools", fields = "Version") #"1.11.1"
 [1] "1.12.0"
 > library (knitr); packageDescription ("knitr", fields = "Version") #"1.13"
-[1] "1.13"
+[1] "1.15.1"
 > #help (package = devtools)
 > 
 > ################################################################################
@@ -67,17 +67,17 @@ CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
 Building agilent ---------------------------------------------------------------
 '/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
-  CMD build '/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg'  \
+  CMD build '/home/dmontaner/programas/R/r_mis_librerias/agilent/pkg'  \
   --no-resave-data --no-manual 
 
-* checking for file ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg/DESCRIPTION’ ... OK
+* checking for file ‘/home/dmontaner/programas/R/r_mis_librerias/agilent/pkg/DESCRIPTION’ ... OK
 * preparing ‘agilent’:
 * checking DESCRIPTION meta-information ... OK
 * installing the package to build vignettes
 * creating vignettes ... OK
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
-* building ‘agilent_2.1.0.tar.gz’
+* building ‘agilent_2.1.1.tar.gz’
 
 Setting env vars ---------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -85,17 +85,17 @@ _R_CHECK_CRAN_INCOMING_           : FALSE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking agilent ---------------------------------------------------------------
 '/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
-  CMD check '/tmp/Rtmpn2fWGm/agilent_2.1.0.tar.gz' --as-cran --timings  \
+  CMD check '/tmp/RtmpNL45Zu/agilent_2.1.1.tar.gz' --as-cran --timings  \
   --no-manual 
 
-* using log directory ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck’
-* using R version 3.3.1 (2016-06-21)
+* using log directory ‘/home/dmontaner/programas/R/r_mis_librerias/agilent/check/agilent.Rcheck’
+* using R version 3.3.3 (2017-03-06)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-manual --as-cran’
 * checking for file ‘agilent/DESCRIPTION’ ... OK
 * checking extension type ... Package
-* this is package ‘agilent’ version ‘2.1.0’
+* this is package ‘agilent’ version ‘2.1.1’
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -106,7 +106,7 @@ Checking agilent ---------------------------------------------------------------
 * checking for sufficient/correct file permissions ... OK
 * checking whether package ‘agilent’ can be installed ... OK
 * checking installed package size ... NOTE
-  installed size is 54.2Mb
+  installed size is 54.3Mb
   sub-directories of 1Mb or more:
     exampledata  53.9Mb
 * checking package directory ... OK
@@ -131,25 +131,7 @@ Checking agilent ---------------------------------------------------------------
 * checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
-* checking Rd line widths ... NOTE
-Rd file 'normalizeAgilent.Rd':
-  \examples lines wider than 100 characters:
-     summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
-     table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
-
-Rd file 'readAgilent.Rd':
-  \examples lines wider than 100 characters:
-     ra <- readAgilent (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
-
-Rd file 'readAgilentHeaderS.Rd':
-  \examples lines wider than 100 characters:
-     ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"), samplenames = c ("first", "second"), includeFileNames = FALSE)
-
-Rd file 'readGPR.Rd':
-  \examples lines wider than 100 characters:
-     rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
-
-These lines will be truncated in the PDF manual.
+* checking Rd line widths ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
@@ -158,100 +140,24 @@ These lines will be truncated in the PDF manual.
 * checking for unstated dependencies in examples ... OK
 * checking installed files from ‘inst/doc’ ... OK
 * checking files in ‘vignettes’ ... OK
-* checking examples ... ERROR
-Running examples in ‘agilent-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: backgroundCorrectAgilent
-> ### Title: Background Correct Agilent.
-> ### Aliases: backgroundCorrectAgilent
-> ### Keywords: agilent background correction
-> 
-> ### ** Examples
-> 
-> setwd (file.path (system.file ("exampledata", package = "agilent")))
-> dir ()
-[1] "GPR1.gpr"     "GPR2.gpr"     "agilent1.txt" "agilent2.txt"
-> 
-> ra <- readAgilent ()
-
-reading header: agilent1.txt
-reading header: agilent2.txt
-
-Warning in readAgilent() :
-  columns probe_mappings are not found in your data
-Reading:
-     files          samplenames
-[1,] "agilent1.txt" "agilent1" 
-[2,] "agilent2.txt" "agilent2" 
-
-Reading: agilent1.txt
-Warning in read.table(file = fichero, header = TRUE, sep = "\t", quote = "",  :
-  not all columns named in 'colClasses' exist
-Error in `[.data.frame`(read.features, , col) : 
-  undefined columns selected
-Calls: readAgilent -> [ -> [.data.frame
-Execution halted
+* checking examples ... OK
 * checking for unstated dependencies in vignettes ... OK
 * checking package vignettes in ‘inst/doc’ ... OK
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 ERROR, 2 NOTEs
+Status: 1 NOTE
 See
-  ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/check/agilent.Rcheck/00check.log’
+  ‘/home/dmontaner/programas/R/r_mis_librerias/agilent/check/agilent.Rcheck/00check.log’
 for details.
 
+
 R CMD check results
-1 error  | 0 warnings | 2 notes
-checking examples ... ERROR
-Running examples in ‘agilent-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: backgroundCorrectAgilent
-> ### Title: Background Correct Agilent.
-> ### Aliases: backgroundCorrectAgilent
-> ### Keywords: agilent background correction
-> 
-... 15 lines ...
-     files          samplenames
-[1,] "agilent1.txt" "agilent1" 
-[2,] "agilent2.txt" "agilent2" 
-
-Reading: agilent1.txt
-Warning in read.table(file = fichero, header = TRUE, sep = "\t", quote = "",  :
-  not all columns named in 'colClasses' exist
-Error in `[.data.frame`(read.features, , col) : 
-  undefined columns selected
-Calls: readAgilent -> [ -> [.data.frame
-Execution halted
-
+0 errors | 0 warnings | 1 note 
 checking installed package size ... NOTE
-  installed size is 54.2Mb
+  installed size is 54.3Mb
   sub-directories of 1Mb or more:
     exampledata  53.9Mb
-
-checking Rd line widths ... NOTE
-Rd file 'normalizeAgilent.Rd':
-  \examples lines wider than 100 characters:
-     summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
-     table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
-
-Rd file 'readAgilent.Rd':
-  \examples lines wider than 100 characters:
-     ra <- readAgilent (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
-
-Rd file 'readAgilentHeaderS.Rd':
-  \examples lines wider than 100 characters:
-     ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"), samplenames = c ("first", "second"), includeFileNames = FALSE)
-
-Rd file 'readGPR.Rd':
-  \examples lines wider than 100 characters:
-     rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
-
-These lines will be truncated in the PDF manual.
 > 
 > ## ### First (quick) CHECK of the library
 > ## see how to avoid testing here ???
@@ -353,28 +259,28 @@ output file: agilent.md
 > ### Build the package
 > build (pkg = "pkg", manual = TRUE, vignettes = TRUE)
 '/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
-  CMD build '/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg'  \
+  CMD build '/home/dmontaner/programas/R/r_mis_librerias/agilent/pkg'  \
   --no-resave-data 
 
-* checking for file ‘/home/dmontaner/programas/r_mis_librerias/agilent/agilent/pkg/DESCRIPTION’ ... OK
+* checking for file ‘/home/dmontaner/programas/R/r_mis_librerias/agilent/pkg/DESCRIPTION’ ... OK
 * preparing ‘agilent’:
 * checking DESCRIPTION meta-information ... OK
 * installing the package to build vignettes
 * creating vignettes ... OK
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
-* building ‘agilent_2.1.0.tar.gz’
+* building ‘agilent_2.1.1.tar.gz’
 
-[1] "/home/dmontaner/programas/r_mis_librerias/agilent/agilent/agilent_2.1.0.tar.gz"
+[1] "/home/dmontaner/programas/R/r_mis_librerias/agilent/agilent_2.1.1.tar.gz"
 > 
 > 
 > ###EXIT
 > warnings ()
 NULL
 > sessionInfo ()
-R version 3.3.1 (2016-06-21)
+R version 3.3.3 (2017-03-06)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 14.04.4 LTS
+Running under: Ubuntu 14.04.5 LTS
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -388,18 +294,20 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] BiocStyle_1.8.0 agilent_2.1.0   knitr_1.13      devtools_1.12.0
+[1] BiocStyle_2.2.1 agilent_2.1.1   knitr_1.15.1    devtools_1.12.0
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.5           roxygen2_5.0.1        digest_0.6.9         
- [4] withr_1.0.2           affy_1.48.0           formatR_1.4          
- [7] magrittr_1.5          evaluate_0.9          BiocInstaller_1.20.3 
-[10] zlibbioc_1.16.0       stringi_1.1.1         affyio_1.40.0        
-[13] limma_3.26.9          preprocessCore_1.32.0 rmarkdown_0.9.6      
-[16] tools_3.3.1           stringr_1.0.0         Biobase_2.30.0       
-[19] yaml_2.1.13           parallel_3.3.1        BiocGenerics_0.16.1  
-[22] htmltools_0.3.5       memoise_1.0.0        
+ [1] Rcpp_0.12.10          xml2_1.1.1            magrittr_1.5         
+ [4] roxygen2_6.0.1        BiocGenerics_0.20.0   zlibbioc_1.20.0      
+ [7] R6_2.2.0              stringr_1.2.0         tools_3.3.3          
+[10] parallel_3.3.3        Biobase_2.34.0        affy_1.52.0          
+[13] withr_1.0.2           htmltools_0.3.5       commonmark_1.2       
+[16] yaml_2.1.14           digest_0.6.12         assertthat_0.1       
+[19] rprojroot_1.2         preprocessCore_1.36.0 crayon_1.3.2         
+[22] affyio_1.44.0         evaluate_0.10         memoise_1.0.0        
+[25] rmarkdown_1.4         limma_3.30.13         stringi_1.1.3        
+[28] BiocInstaller_1.24.0  backports_1.0.5       desc_1.1.0           
 > q ("no")
 > proc.time()
    user  system elapsed 
- 40.068   2.068  44.749 
+107.628   3.844 116.087 

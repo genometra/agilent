@@ -39,20 +39,21 @@ ra$feparams[,1:3]
 class (ra[[3]])
 ra[[3]]
 
-ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"), samplenames = c ("first", "second"), includeFileNames = FALSE)
+ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"),
+                          samplenames = c ("first", "second"),
+                          includeFileNames = FALSE)
 names (ra)
 dim (ra$feparams)
 ra$feparams[,1:3]
 class (ra[[3]])
 
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{readAgilentHeader}} \code{\link{readAgilent}} \code{\link{readGPR}}
+}
+\author{
+David Montaner \email{dmontaner@cipf.es}
 }
 \keyword{agilent}
 \keyword{header}
 \keyword{read}
-

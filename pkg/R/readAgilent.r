@@ -47,6 +47,7 @@
 ##' @return An ExpressionSet containing foreground (F) and background (B) matrices within the assayData
 ##' 
 ##' @examples
+##' library (Biobase)
 ##' setwd (file.path (system.file ("exampledata", package = "agilent")))
 ##' dir ()
 ##' 
@@ -60,7 +61,8 @@
 ##' ra <- readAgilent (sampleinfo = sinfo)
 ##' pData (ra)
 ##' 
-##' ra <- readAgilent (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+##' ra <- readAgilent (background.column = NULL, other.columns = NULL,
+##'                    feature.columns = NULL, verbose = FALSE)
 ##' pData (ra)
 ##' fData (ra)[1:5,]
 ##' assayDataElementNames (ra)

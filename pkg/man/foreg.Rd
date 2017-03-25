@@ -19,11 +19,10 @@ Retrieve foreground data from Agilent One Color ExpressionSet.
 \details{
 This function access the F matrix in the assayData of an Agilent One Color ExpressionSet.
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{backg}} \code{\link{flags}} \code{\link{readAgilentHeader}} \code{\link{readGPR}}
 }
+\author{
+David Montaner \email{dmontaner@cipf.es}
+}
 \keyword{foreground}
-

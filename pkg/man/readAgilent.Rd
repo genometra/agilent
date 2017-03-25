@@ -55,6 +55,7 @@ Extra columns read by default are: "gProcessedSignal" and "IsManualFlag".
 See the \code{other.columns} parameter.
 }
 \examples{
+library (Biobase)
 setwd (file.path (system.file ("exampledata", package = "agilent")))
 dir ()
 
@@ -68,19 +69,19 @@ sinfo <- cbind (filename = c("agilent2.txt", "agilent1.txt"),
 ra <- readAgilent (sampleinfo = sinfo)
 pData (ra)
 
-ra <- readAgilent (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+ra <- readAgilent (background.column = NULL, other.columns = NULL,
+                   feature.columns = NULL, verbose = FALSE)
 pData (ra)
 fData (ra)[1:5,]
 assayDataElementNames (ra)
 
 
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{readAgilentHeader}} \code{\link{readGPR}}
 }
+\author{
+David Montaner \email{dmontaner@cipf.es}
+}
 \keyword{agilent}
 \keyword{read}
-

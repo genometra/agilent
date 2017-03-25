@@ -47,6 +47,7 @@ flagout uses the assayData matrix "flagout" if exists. This is a logical or a 0,
 "scale.noabs" performs as the function normalizeMedianValues in the limma package (no absolute value is taken).
 }
 \examples{
+library (Biobase)
 setwd (file.path (system.file ("exampledata", package = "agilent")))
 dir ()
 
@@ -98,7 +99,8 @@ table (biological, exclude = NULL)
 summary (exprs (norm5[!biological,]))
 summary (exprs (norm5[biological,]))
 summary (preprocessCore::normalize.quantiles (exprs (ba[biological,])))
-summary (exprs (norm5[biological,]) - preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
+summary (exprs (norm5[biological,]) -
+         preprocessCore::normalize.quantiles (exprs (ba[biological,]))) #similar
 
 norm6 <- normalizeAgilent (object = ba, method = "scale", logit = FALSE,
                            nonbiologicalout = TRUE, nonbiological2na = TRUE,
@@ -112,15 +114,15 @@ table (biological, exclude = NULL)
 summary (exprs (norm6[!biological,]))
 summary (exprs (norm6[biological,]))
 summary (limma::normalizeMedianAbsValues (exprs (ba[biological,])))
-table (exprs (norm6[biological,]) == limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
+table (exprs (norm6[biological,]) ==
+       limma::normalizeMedianAbsValues (exprs (ba[biological,]))) #similar
 
-}
-\author{
-David Montaner \email{dmontaner@cipf.es}
 }
 \seealso{
 \code{\link{readAgilent}} \code{\link{readGPR}} \code{\link{backgroundCorrectAgilent}}
 }
+\author{
+David Montaner \email{dmontaner@cipf.es}
+}
 \keyword{agilent}
 \keyword{normalize}
-

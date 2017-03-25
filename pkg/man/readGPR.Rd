@@ -54,6 +54,7 @@ For consistency with the original Agilent text format, if "Column" is among
 feature.columns a final column named just "Col" is in the pData object.
 }
 \examples{
+library (Biobase)
 setwd (file.path (system.file ("exampledata", package = "agilent")))
 dir ()
 
@@ -68,7 +69,8 @@ sinfo <- cbind (filename = c("GPR2.gpr", "GPR1.gpr"),
 rg <- readGPR (sampleinfo = sinfo)
 pData (rg)
 
-rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+rg <- readGPR (background.column = NULL, other.columns = NULL,
+               feature.columns = NULL, verbose = FALSE)
 pData (rg)
 fData (rg)
 assayDataElementNames (rg)
@@ -77,12 +79,11 @@ foreg (rg) [1:3,]
 
 
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{readAgilent}} \code{\link{readGPRHeaderS}}
 }
+\author{
+David Montaner \email{dmontaner@cipf.es}
+}
 \keyword{GPR.}
 \keyword{Read}
-

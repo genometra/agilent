@@ -58,6 +58,7 @@ the function \code{normexp.fit} performs a \code{require(affy)}
 and thus the library \code{affy} gets attached to the path.
 }
 \examples{
+library (Biobase)
 setwd (file.path (system.file ("exampledata", package = "agilent")))
 dir ()
 
@@ -82,13 +83,12 @@ bg <- backgroundCorrectAgilent (rg, nonbiological2na = TRUE)
 summary (exprs (bg))
 
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{readAgilent}} \code{\link{readGPR}}
+}
+\author{
+David Montaner \email{dmontaner@cipf.es}
 }
 \keyword{agilent}
 \keyword{background}
 \keyword{correction}
-

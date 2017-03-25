@@ -37,7 +37,9 @@
 ##' class (ra[[3]])
 ##' ra[[3]]
 ##'
-##' ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"), samplenames = c ("first", "second"), includeFileNames = FALSE)
+##' ra <- readAgilentHeaderS (files = c("agilent1.txt", "agilent2.txt"),
+##'                           samplenames = c ("first", "second"),
+##'                           includeFileNames = FALSE)
 ##' names (ra)
 ##' dim (ra$feparams)
 ##' ra$feparams[,1:3]

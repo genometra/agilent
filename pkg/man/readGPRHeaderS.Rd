@@ -50,16 +50,15 @@ hs$columns[1:5]
 
 
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \references{
 \url{http://www.moleculardevices.com/pages/software/gn_genepix_file_formats.html}
 }
 \seealso{
 \code{\link{readAgilent}} \code{\link{readGPR}}
 }
+\author{
+David Montaner \email{dmontaner@cipf.es}
+}
 \keyword{GPR}
 \keyword{Read}
 \keyword{header.}
-

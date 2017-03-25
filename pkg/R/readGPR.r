@@ -49,6 +49,7 @@
 ##' @return An ExpressionSet containing foreground (F) and background (B) matrices within the assayData.
 ##' 
 ##' @examples
+##' library (Biobase)
 ##' setwd (file.path (system.file ("exampledata", package = "agilent")))
 ##' dir ()
 ##' 
@@ -63,7 +64,8 @@
 ##' rg <- readGPR (sampleinfo = sinfo)
 ##' pData (rg)
 ##' 
-##' rg <- readGPR (background.column = NULL, other.columns = NULL, feature.columns = NULL, verbose = FALSE)
+##' rg <- readGPR (background.column = NULL, other.columns = NULL,
+##'                feature.columns = NULL, verbose = FALSE)
 ##' pData (rg)
 ##' fData (rg)
 ##' assayDataElementNames (rg)

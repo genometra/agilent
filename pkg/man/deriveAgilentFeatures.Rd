@@ -29,12 +29,11 @@ log.relative.conc is a named vector describing
 1-color Agilent SpikeIns Signal Statistics Log (Relative Conc.)
 Concentrations form Agilent Design ID 014850 are assumed by default.
 }
-\author{
-David Montaner \email{dmontaner@cipf.es}
-}
 \seealso{
 \code{\link{readAgilent}} \code{\link{readGPR}}
 }
+\author{
+David Montaner \email{dmontaner@cipf.es}
+}
 \keyword{agilent}
 \keyword{features}
-
