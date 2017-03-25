@@ -25,6 +25,9 @@
 ##' If background.columncolumn = NULL no B matrix is set in assayData.
 ##' If all feature.columns are the same a single column is passed to the featureData.
 ##' If not all of them are equal, the information stays in the assayData
+##'
+##' If foreground.column is not readAgilent tries first to use "gMedianSignal".
+##' If "gMedianSignal" is not found then readAgilent tries "gMeanSignal".
 ##' 
 ##' Default feature.columns are: "ProbeName", "GeneName", "SystematicName", "FeatureNum",
 ##' "Row", "Col", "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType", "Description"
@@ -82,7 +85,8 @@
 ## verbose = TRUE
 
 readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo = NULL,
-                         foreground.column = "gMeanSignal", background.column = "gBGMedianSignal",
+                         foreground.column, ##= "gMeanSignal",
+                         background.column = "gBGMedianSignal",
                          other.columns = c ("gProcessedSignal", "IsManualFlag"),
                          feature.columns = character(0),
                          derivefeatures = TRUE, verbose = TRUE, ...) {
@@ -138,6 +142,19 @@ readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo =
 
   
   ##checking some parameters ---------------------------------------------------
+  if (missing (foreground.column)) {
+    if ("gMedianSignal" %in% names (headers$fieldType)) {
+      foreground.column <- "gMedianSignal"
+      if (verbose) cat ("Foreground Column: gMedianSignal", fill = TRUE)
+    } else {
+      if ("gMeanSignal" %in% names (headers$fieldType)) {
+        foreground.column <- "gMeanSignal"
+        if (verbose) cat ("Foreground Column: gMeanSignal", fill = TRUE)
+      } else {
+        stop ("No Foreground Column found in your data. Tried: gMedianSignal and gMeanSignal")
+      }
+    }
+  }
   
   if (length (foreground.column) > 1) {
     warning ("foreground.column has more than one element; just the first one will be used")

@@ -5,7 +5,7 @@
 \title{Read Agilent.}
 \usage{
 readAgilent(files = character(0), samplenames = NULL, sampleinfo = NULL,
-  foreground.column = "gMeanSignal", background.column = "gBGMedianSignal",
+  foreground.column, background.column = "gBGMedianSignal",
   other.columns = c("gProcessedSignal", "IsManualFlag"),
   feature.columns = character(0), derivefeatures = TRUE, verbose = TRUE,
   ...)
@@ -47,6 +47,9 @@ sampleinfo must have columns named 'filename' and 'samplename'
 If background.columncolumn = NULL no B matrix is set in assayData.
 If all feature.columns are the same a single column is passed to the featureData.
 If not all of them are equal, the information stays in the assayData
+
+If foreground.column is not readAgilent tries first to use "gMedianSignal".
+If "gMedianSignal" is not found then readAgilent tries "gMeanSignal".
 
 Default feature.columns are: "ProbeName", "GeneName", "SystematicName", "FeatureNum",
 "Row", "Col", "SubTypeMask", "SubTypeName", "ProbeUID", "ControlType", "Description"
