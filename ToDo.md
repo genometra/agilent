@@ -10,7 +10,7 @@ Pipeline de trabajo
 - Trabajais en local
 - Subis un commit con los cambios a vuestra rama de github
 - Desde github haceis un "pull request" que llegara a la rama devel de Genometra
-- Actualizo la rame devel de Genometra y mas adelante la rama master
+- Actualizo la rama devel de Genometra y mas adelante la rama master
 
 
 Trabajo en local
@@ -31,14 +31,12 @@ con la libreria `roxygen2`
 Cosas para hacer por orden de prioridad
 ================================================================================
 
-Revisar ejemplos. Algunos fallan cuando se ejecutan. Esto se ve en los logs de la compilacion del paquete.
-
-En algun momento debi meter la lectura de algunas columnas que no estan en los datos de ejemplo.
-Mirad que es lo que falla y lo comentamos.
+[x] Revisar ejemplos. Algunos fallan cuando se ejecutan. Esto se ve en los logs de la compilacion del paquete.
 
 --------------------------------------------------------------------------------
 
-Hacer que detecte automaticamente la coumna de foreground.
+[x] Hacer que detecte automaticamente la columna de foreground.
+
 Esta puede ser:
 
 - "gMeanSignal"
@@ -53,7 +51,7 @@ pero por si acaso este es el paquete que se utiliza para procesar la documentaci
 
 --------------------------------------------------------------------------------
 
-Quitar los warnings.
+[x] Quitar los warnings.
 
 Cuando escribi el paquete puse muchos mensajes y warnings (funciones de R `message` y `warning`)
 la mayoria de ellos deberian cambiarse por funciones `print` o mejor `cat`.
