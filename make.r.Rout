@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 > ## my make file for developing R packages
 > 
 > date ()
-[1] "Sat Mar 25 14:52:06 2017"
+[1] "Sat Mar 25 15:04:23 2017"
 > rm (list = ls ())
 > R.version.string ##"R version 3.2.1 (2015-06-18)"
 [1] "R version 3.3.3 (2017-03-06)"
@@ -85,7 +85,7 @@ _R_CHECK_CRAN_INCOMING_           : FALSE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking agilent ---------------------------------------------------------------
 '/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
-  CMD check '/tmp/Rtmpsz3F77/agilent_2.1.1.tar.gz' --as-cran --timings  \
+  CMD check '/tmp/Rtmph3A9nz/agilent_2.1.1.tar.gz' --as-cran --timings  \
   --no-manual 
 
 * using log directory ‘/home/dmontaner/programas/R/r_mis_librerias/agilent/check/agilent.Rcheck’
@@ -310,4 +310,4 @@ loaded via a namespace (and not attached):
 > q ("no")
 > proc.time()
    user  system elapsed 
- 88.484   2.892  96.218 
+ 78.116   2.432  90.466 
