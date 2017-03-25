@@ -26,7 +26,7 @@
 ##' If all feature.columns are the same a single column is passed to the featureData.
 ##' If not all of them are equal, the information stays in the assayData
 ##'
-##' If foreground.column is not readAgilent tries first to use "gMedianSignal".
+##' If foreground.column is not set readAgilent tries first to use "gMedianSignal".
 ##' If "gMedianSignal" is not found then readAgilent tries "gMeanSignal".
 ##' 
 ##' Default feature.columns are: "ProbeName", "GeneName", "SystematicName", "FeatureNum",
@@ -145,11 +145,11 @@ readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo =
   if (missing (foreground.column)) {
     if ("gMedianSignal" %in% names (headers$fieldType)) {
       foreground.column <- "gMedianSignal"
-      if (verbose) cat ("Foreground Column: gMedianSignal", fill = TRUE)
+      if (verbose) cat ("Foreground Column: gMedianSignal will be used\n", fill = TRUE)
     } else {
       if ("gMeanSignal" %in% names (headers$fieldType)) {
         foreground.column <- "gMeanSignal"
-        if (verbose) cat ("Foreground Column: gMeanSignal", fill = TRUE)
+        if (verbose) cat ("Foreground Column: gMeanSignal will be used\n", fill = TRUE)
       } else {
         stop ("No Foreground Column found in your data. Tried: gMedianSignal and gMeanSignal")
       }
@@ -176,7 +176,7 @@ readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo =
   
   bad.other.columns <- setdiff (other.columns, names (headers$fieldType))
   if (length (bad.other.columns) > 0) {
-    warning (paste (c ("columns", bad.other.columns, "are not found in your data"), collapse = " "))
+    if (verbose) cat (paste (c ("columns", bad.other.columns, "are not found in your data"), collapse = " "), fill = TRUE)
   }
   other.columns <- intersect (names (headers$fieldType), other.columns)
   ##OBS: THE intersect HAS TO BE STRICTLY IN THIS ORDER
@@ -184,7 +184,7 @@ readAgilent <- function (files = character (0), samplenames = NULL, sampleinfo =
   
   bad.feature.columns <- setdiff (feature.columns, names (headers$fieldType))
   if (length (bad.feature.columns) > 0) {
-    warning (paste (c ("columns", bad.feature.columns, "are not found in your data"), collapse = " "))
+    if (verbose) cat (paste (c ("columns", bad.feature.columns, "are not found in your data"), collapse = " "), fill = TRUE)
   }
   feature.columns <- intersect (names (headers$fieldType), feature.columns) 
   ##OBS: THE intersect HAS TO BE STRICTLY IN THIS ORDER

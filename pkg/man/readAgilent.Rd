@@ -48,7 +48,7 @@ If background.columncolumn = NULL no B matrix is set in assayData.
 If all feature.columns are the same a single column is passed to the featureData.
 If not all of them are equal, the information stays in the assayData
 
-If foreground.column is not readAgilent tries first to use "gMedianSignal".
+If foreground.column is not set readAgilent tries first to use "gMedianSignal".
 If "gMedianSignal" is not found then readAgilent tries "gMeanSignal".
 
 Default feature.columns are: "ProbeName", "GeneName", "SystematicName", "FeatureNum",
